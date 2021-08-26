@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            // id INT
+        Schema::create('records', function (Blueprint $table) {
+            //- id INT -->
             $table->increments('id');
-            //grade varchar(1)
-            $table->string('grade',1);
-            //password varchar(10)
-            $table->string('password',10);
-            //part  char(10)
-            $table->string('part',10);
-            // created_atとupdated_atの追加
+            // title varchar(20) -->
+            $table->string('title',20);
+            // person varchar(20) -->
+            $table->string('person',20);
+            // url varchar(20) -->
+            $table->string('url',65535);
+            // created_atとupdated_atの追加 -->
             $table->timestamps();
             // deleted_at　論理削除
             $table->softDeletes();
@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-            // Schema::drop('users');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('records');
+        // Schema::drop('records');
     }
 }
