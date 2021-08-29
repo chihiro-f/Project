@@ -15,7 +15,7 @@ class CreateNetworksTable extends Migration
     {
         Schema::create('networks', function (Blueprint $table) {
             //<!-- id INT -->
-            $table->increments('id');
+            $table->increments('id')->unique();
             //<!-- title varchar(20) -->
             $table->string('title',20);
             //<!-- content TEXT -->
@@ -24,12 +24,13 @@ class CreateNetworksTable extends Migration
             $table->timestamps();
             //<!-- deleted_at　論理削除 -->
             $table->softDeletes();
+            
             //<!-- user_id 設定 -->
-            $table->increment('user_id');
+            $table->integer('user_id')->unsigned();
             //<!-- 外部キー制約 -->
             $table->foreign('user_id')
                 ->references('id')->on('users')
-                ->onDelete('set null');
+                ->onDelete('cascade');
             
         });
     }

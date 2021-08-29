@@ -15,19 +15,20 @@ class CreateMonthlySchedulesTable extends Migration
     {
         Schema::create('monthly_schedules', function (Blueprint $table) {
             //<!-- id INT -->
-            $table->increments('id');
+            $table->increments('id')->unique();
             //<!-- content TEXT -->
             $table->text('content');
             //<!-- created_atとupdated_atの追加 -->
             $table->timestamps();
             //<!-- deleted_at　論理削除 -->
             $table->softDeletes();
+            
             //<!-- user_id 設定 -->
-            $table->increment('user_id');
+            $table->integer('user_id')->unsigned();
             //<!-- 外部キー制約 -->
             $table->foreign('user_id')
                     ->references('id')->on('users')
-                    ->onDelete('set null');
+                    ->onDelete('cascade');
         });
     }
 
