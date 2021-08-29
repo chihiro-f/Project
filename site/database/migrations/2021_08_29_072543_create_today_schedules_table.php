@@ -15,7 +15,7 @@ class CreateTodaySchedulesTable extends Migration
     {
         Schema::create('today_schedules', function (Blueprint $table) {
             //<!-- id INT -->
-            $table->increments('id');
+            $table->increments('id')->unique();
             //<!-- title varchar(20) -->
             $table->string('title',20);
             //<!-- content TEXT -->
@@ -24,12 +24,13 @@ class CreateTodaySchedulesTable extends Migration
             $table->timestamps();
             //<!-- deleted_at　論理削除 -->
             $table->softDeletes();
+            
             //<!-- comment_id 設定 -->
-            $table->increment('comment_id');
+            $table->integer('comment_id')->unsigned();
             //<!-- 外部キー制約 -->
             $table->foreign('comment_id')
                     ->references('id')->on('comments')
-                    ->onDelete('set null');
+                    ->onDelete('cascade');
         });
     }
 
@@ -47,3 +48,4 @@ class CreateTodaySchedulesTable extends Migration
         Schema::dropIfExists('today_schedules');
     }
 }
+

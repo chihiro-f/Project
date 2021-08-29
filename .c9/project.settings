@@ -1,4 +1,7 @@
 {
+    "extensions": {
+        "@aws.profile": "profile:default"
+    },
     "instance": {
         "@automaticShutdown": "30"
     },

@@ -15,13 +15,13 @@ class CreateRecordsTable extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             //- id INT -->
-            $table->increments('id');
+            $table->increments('id')->unique();
             // title varchar(20) -->
             $table->string('title',20);
             // person varchar(20) -->
             $table->string('person',20);
             // url varchar(20) -->
-            $table->string('url',65535);
+            $table->string('url',255);
             // created_atとupdated_atの追加 -->
             $table->timestamps();
             // deleted_at　論理削除
