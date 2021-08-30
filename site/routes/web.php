@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/today', 'Today_scheduleController@show');
+// Route::get('/monthly_schedule', 'Monthly_scheduleController@show');
+// Route::get('/network', 'NetworkController@index');
+// Route::get('/record', 'RecordController@index');
+// Route::get('/user', 'UserController@index');
