@@ -14,8 +14,8 @@
     <div class = 'schedule_today'>
       <h5>更新日：</h5>
       <input type="button" value="編集" />
-      <h1 class = 'title'>{{ $today_schedule->title }}</h1>
-      <div class = 'context'>{{ $today_schedule->content }}</div>
+      <h1 class = 'title'>{{ $today_schedules->title }}</h1>
+      <div class = 'context'>{{ $today_schedules->content }}</div>
       <p></p><!-- 間 -->
     </div>
 
@@ -35,13 +35,15 @@
     </div>
 
     <p></p>
-    <div class = 'list'>
-      <h5>１週間のスケジュール</h5>
-      @foreach($today_schedules as $today_schedule)
-       <p>[<a href="/">2021/08/07</a>]</p> 
-      <p>[<a href="/">{{ $today_schedule->title }}</a>]</p>
-      @endforeach
-      <p></p>
+    <div class ='list_week'>
+      
+      <div class = 'list'>
+        <h5>１週間のスケジュール</h5>
+        @foreach($today_schedules as $today_schedule)
+         <p>[<a href="/">2021/08/07</a>]</p> 
+        <p></p>
+        @endforeach
+      </div>
     </div>
 
   </body>
