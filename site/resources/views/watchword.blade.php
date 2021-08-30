@@ -1,5 +1,5 @@
 <!doctype HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocate() ) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale() ) }}">
   <head>
     <meta charset='utf-8'>
     <!-- <title>部員サイト</title> -->
