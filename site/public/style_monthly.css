@@ -1,0 +1,15 @@
+.schedule_month{
+  text-align: center;
+}
+
+.title{
+  text-align:center;
+  font-weight: bold;
+}
+
+.context{
+  width:70%;
+  margin: auto;
+  text-align: center;
+  border:solid 2px #000;
+}
