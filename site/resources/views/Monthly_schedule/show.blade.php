@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="style.css">
+    <link rel ="stylesheet" href="style_monthly.css">
   </head>
 
   <body>
