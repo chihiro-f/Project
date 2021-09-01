@@ -2,6 +2,7 @@
 <html lang = "{{ str_replace('_', '-', app()->getLocale() ) }}">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>部員サイト</title>
     <link href ="https:fonts.googleapis.com/css?family=Nunito:200,600">
     <link rel ="stylesheet" href="style_today.css">
@@ -13,7 +14,7 @@
     
     <header>
       <ul>
-        <li><a href="/today">Home</a></li>
+        <li><a href="/today/{{ $today_schedules->id }}">Home</a></li>
         <li><a href="/monthly_schedule">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
