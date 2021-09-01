@@ -41,3 +41,21 @@
   margin:auto;
   border:solid 3px #000;
 }
+
+
+ul{
+  text-align: center;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+ul li{
+  display: inline-block;
+  padding: 26px 10px 20px 10px;
+}
+
+a{
+  color: #000;
+}

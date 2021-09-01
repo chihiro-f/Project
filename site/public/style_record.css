@@ -1,6 +1,6 @@
 /* Record */
 .context{
-  width:70%;
+  /*width:70%;*/
   margin: auto;
   text-align: center;
   border:solid 2px #000;
@@ -9,8 +9,6 @@
 .record_list{
   display: table;
   margin:auto;
-  width:70%;
-  border:solid 3px #000;
 }
 
 .filename{
@@ -31,4 +29,25 @@
 .title{
   text-align:center;
   font-weight: bold;
+}
+
+ul{
+  text-align: center;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+ul li{
+  display: inline-block;
+  padding: 26px 10px 20px 10px;
+}
+
+a{
+  color: #000;
+}
+
+table{
+  border-collapse: collapse;
 }

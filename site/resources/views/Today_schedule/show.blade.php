@@ -10,10 +10,20 @@
 
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
+    
+    <header>
+      <ul>
+        <li><a href="/today">Home</a></li>
+        <li><a href="/monthly_schedule">今後の予定一覧</a></li>
+        <li><a href="/record">練習録音</a></li>
+        <li><a href="/network">連絡網</a></li>
+      </ul>
+    </header>
 
     <div class = 'schedule_today'>
       <h5>更新日：</h5>
-      <input type="button" value="編集" />
+      <p class="edit">[<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]</p>
+      <a href='/today/create'>新規スケジュールを作成</a>
       <h1 class = 'title'>{{ $today_schedules->title }}</h1>
       <div class = 'context'>{{ $today_schedules->content }}</div>
       <p></p><!-- 間 -->
@@ -40,7 +50,7 @@
       <div class = 'list'>
         <h5>１週間のスケジュール</h5>
         @foreach($today_schedules as $today_schedule)
-         <p>[<a href="/">2021/08/07</a>]</p> 
+         <p>[<a href="/today">2021/08/07</a>]</p> 
         <p></p>
         @endforeach
       </div>

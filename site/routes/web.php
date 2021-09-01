@@ -11,8 +11,33 @@
 |
 */
 
+// Route::get('/today', 'Today_scheduleController@show');
+// Route::get('/monthly_schedule', 'Monthly_scheduleController@show');
+// Route::get('/network', 'NetworkController@index');
+// Route::get('/record', 'RecordController@index');
+// Route::get('/user', 'UserController@index');
+
+// Route::put('/today/{today_schedule}','Today_scheduleController@update');
+// Route::get('/today/{today_schedule}/edit','Today_scheduleController@edit');
+// Route::get('/today/create','Today_scheduleController@create');
+// //DB(today_schedules)への登録
+// Route::post('/today','Today_scheduleController@store');
+
+// Route::put('/monthly_schedule/{monthly_schedule}','Monthly_scheduleController@update');
+// Route::get('/monthly_schedule/{monthly_schedule}/edit','Monthly_scheduleController@edit');
+
+
 Route::get('/today', 'Today_scheduleController@show');
+Route::get('/today/create','Today_scheduleController@create');
+//DB(today_schedules)への登録
+Route::get('/today/{today_schedule}/edit','Today_scheduleController@edit');
+Route::post('/today','Today_scheduleController@store');
+Route::put('/today/{today_schedule}','Today_scheduleController@update');
+
 Route::get('/monthly_schedule', 'Monthly_scheduleController@show');
+Route::get('/monthly_schedule/{monthly_schedule}/edit','Monthly_scheduleController@edit');
+Route::put('/monthly_schedule/{monthly_schedule}','Monthly_scheduleController@update');
+
 Route::get('/network', 'NetworkController@index');
 Route::get('/record', 'RecordController@index');
 Route::get('/user', 'UserController@index');

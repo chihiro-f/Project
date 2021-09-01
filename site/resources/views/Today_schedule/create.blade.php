@@ -16,18 +16,21 @@
       <h1 class = 'title'>新規投稿_今日のスケジュール</h1>
       <!-- タイトル入力 -->
       <h4>タイトル</h4>
-      <input type="text" name="today_schedules[title]">
+      <input type="text" name="today_schedules[title]" placeholder="タイトルを入力" value="{{ old('today_schedule.title') }}" >
+      <p class="title_error" style="color:red">{{ $errors->first('today_schedule.title') }}</p>
+      
       <!-- スケジュール入力 -->
       <h4>スケジュール内容</h4>
-      <textarea name="today_schedules[content]" ></textarea>
-      <p></p>
+      <textarea name="today_schedules[content]" placeholder="本日のスケジュール内容を記入してください" value="{{ old('today_schedule.content') }}"></textarea>
+      <p class="body_error" style="color:red">{{ $errors->first('today_schedule.content') }}</p>
+      <br><br>
       <input type="submit" value="投稿" />
-      <p></p><!-- 間 -->
+      <br><br><!-- 間 -->
     </div>
     <p></p>
     </form>
 
-    <a href="/">戻る</a>
+    <a href="/today">戻る</a>
   </body>
 
 </html>
