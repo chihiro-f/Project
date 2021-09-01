@@ -10,8 +10,9 @@
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
 
-    <form action="/posts" method="post">
-
+    <form action="/monthly_schedule/{{monthly_schedule->id}}" method="POST">
+      @csrf
+      @method('PUT')
     <div class = 'schedule_month'>
       <h1 class = 'title'>編集_今日のスケジュール</h1>
       <h4>タイトル</h4>
