@@ -3,6 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>部員サイト</title>
     <link rel ="stylesheet" href="style_today.css">
   </head>
@@ -10,7 +11,7 @@
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
 
-    <form action="/posts" method="post">
+    <form action="/today" method="POST">
     @csrf
     <div class = 'schedule_month'>
       <h1 class = 'title'>新規投稿_今日のスケジュール</h1>
