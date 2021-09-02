@@ -3,23 +3,22 @@
   <head>
     <meta charset="utf-8">
      <title>部員サイト</title> 
-    <link rel ="stylesheet" href="style_record.css">
+     <link rel ="stylesheet" href="css/style_record.css">
   </head>
   
   <body>
-    <h2>部員サイト</h2>
+    <h2 class='title_cite'>部員サイト</h2>
     
     <header>
       <ul>
         <li><a href="/today">Home</a></li>
-        <li><a href="/monthly_schedule">今後の予定一覧</a></li>
+        <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
     </header>
     
     <div class="context">
-      
       <p></p>
       <h2 class="title">録音一覧</h2>
       

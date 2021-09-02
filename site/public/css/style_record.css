@@ -1,9 +1,10 @@
 /* Record */
 .context{
-  /*width:70%;*/
+  width:70%;
   margin: auto;
   text-align: center;
-  border:solid 2px #000;
+  /*border:solid 2px #000;*/
+  outline:2px solid #000;
 }
 
 .record_list{
