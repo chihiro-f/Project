@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="style_today.css">
+    <link rel ="stylesheet" href="css/style_today.css">
   </head>
 
   <body>
@@ -31,7 +31,7 @@
     <p></p>
     </form>
 
-    <a href="/today">戻る</a>
+    <a href="/today/{{ $today_schedule->id }}">戻る</a>
   </body>
 
 </html>

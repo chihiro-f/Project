@@ -16,7 +16,7 @@ class Monthly_scheduleController extends Controller
         return view('Monthly_schedule.show')->with([ 'monthly_schedules' => $monthly_schedule ]);
     }
     public function edit(Monthly_schedule $monthly_schedule){
-        return view('monthly_schedules/edit')->with(['monthly_schedule'=>$monthly_schedule]);
+        return view('Monthly_schedule.edit')->with(['monthly_schedule'=>$monthly_schedule]);
     }
 
     public function update(Monthly_schedule $request, Monthly_schedule $monthly_schedule){

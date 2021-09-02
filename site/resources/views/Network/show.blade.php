@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="style_network.css">
+    <link rel ="stylesheet" href="css/style_network.css">
   </head>
 
   <body>

@@ -4,13 +4,13 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="style_monthly.css">
+    <link rel ="stylesheet" href="css/style_monthly.css">
   </head>
 
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
 
-    <form action="/today/{{today_schedule->id}}" method="POST">
+    <form action="/monthly_schedule/{{ $monthly_schedule->id }}" method="POST">
       @csrf
       @method('PUT')
 
@@ -24,6 +24,8 @@
     <p></p>
 
     </form>
+    
+    <a href="/monthly_schedule/1">戻る</a>
 
   </body>
 </html>
