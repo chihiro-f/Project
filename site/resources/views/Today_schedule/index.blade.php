@@ -22,6 +22,7 @@
 
     <div class ='schedule_today'>
       <h2>一日のスケジュール</h2>
+      [<a href='/today/create'>新規スケジュールを作成</a>]
       <div class ='list_week'>
         @foreach($today_schedules as $today_schedule)
         <div class = 'list'>

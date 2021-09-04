@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>部員サイト</title>
     <link href="css/style_today.css" rel ="stylesheet">
+    <!--<link href="css/style.css" rel ="stylesheet">-->
     <!--<link href ="https:fonts.googleapis.com/css?family=Nunito:200,600">-->
   </head>
 
@@ -21,13 +22,12 @@
     </header>
 
     <div class = 'schedule_today'>
-      <h2>１日のスケジュール</h2>
-      <h5>更新日：</h5>
-      <p class="edit">[<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]</p>
-      [<a href='/today/create'>新規スケジュールを作成</a>]
+      <h2>一日のスケジュール</h2>
+      <h5>更新日：{{ $today_schedules->updated_at }}</h5>
+      [<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]
       <h1 class = 'title'>{{ $today_schedules->title }}</h1>
       <div class = 'context'>{{ $today_schedules->content }}</div>
-      <p></p><!-- 間 -->
+      <p></p>
     </div>
 
     <p></p>

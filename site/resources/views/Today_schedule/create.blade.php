@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>部員サイト</title>
     <link rel ="stylesheet" href="css/style_today.css">
+    <!--<link href="css/style.css" rel ="stylesheet">-->
   </head>
 
   <body>
@@ -19,7 +20,8 @@
         <li><a href="/network">連絡網</a></li>
       </ul>
     </header>
-
+    
+  
     <form action="/today" method="POST">
     @csrf
     <div class = 'schedule_month'>
@@ -40,7 +42,7 @@
     <p></p>
     </form>
 
-    <a href="/today">戻る</a>
+    <a href="/home">戻る</a>
   </body>
 
 </html>
