@@ -22,7 +22,7 @@
     
     <div class='network_list'><br>
       <h2 class='title'>連絡網</h2>
-      <p><a href="/"></p>
+      [<a href='/network/create'>新規スケジュールを作成</a>]
       
       @foreach($networks as $network)
       <div class ='network_packet'>

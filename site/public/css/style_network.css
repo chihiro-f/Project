@@ -8,6 +8,7 @@
   margin:auto;
   /*border:solid 3px #000;*/
   outline:2px solid #000;
+  text-align: center;
 }
 
 .network_packet{

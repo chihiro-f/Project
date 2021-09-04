@@ -9,7 +9,8 @@ class Today_schedule extends Model
     //Today_schedule.php
     
     protected $guarded=[
-        'id'
+        'id',
+        'comment_id',
     ];
         
     

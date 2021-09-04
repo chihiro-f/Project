@@ -23,5 +23,8 @@ Route::put('/monthly_schedule/{monthly_schedule}','Monthly_scheduleController@up
 Route::get('/monthly_schedule/{monthly_schedule}', 'Monthly_scheduleController@show');
 
 Route::get('/network', 'NetworkController@index');
+Route::get('/network/create','NetworkController@create');
+Route::post('/network', 'NetworkController@store');
+
 Route::get('/record', 'RecordController@index');
 Route::get('/user', 'UserController@index');
