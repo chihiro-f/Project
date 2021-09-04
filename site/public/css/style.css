@@ -1,0 +1,109 @@
+/* Today_schedule */
+.schedule_today{
+  margin:auto;
+  width:90%;
+  border:solid 3px #000;
+}
+
+.context{
+  width:70%;
+  margin: auto;
+  text-align: center;
+  border:solid 2px #000;
+}
+
+.comment_list{
+  width: 90%;
+  margin: auto;
+  border:solid 2px #000;
+}
+
+.comment_post{
+  width: 90%;
+  margin: auto;
+  border:solid 2px #000;
+}
+
+.title{
+  text-align:center;
+  font-weight: bold;
+}
+
+.list{
+  text-align: center;
+  width:50%;
+  margin:auto;
+  border:solid 2px #000;
+}
+
+.schedule_month{
+  width:90%;
+  margin:auto;
+  border:solid 3px #000;
+}
+
+/* monthly_schedule */
+
+.schedule_month{
+  width:90%;
+  margin:auto;
+  border:solid 3px #000;
+}
+
+/* networks */
+
+.network_list{
+  width:90%;
+  margin:auto;
+  border:solid 3px #000;
+}
+
+.network_packet{
+  width: 80%;
+  margin:auto;
+  border:solid 3px #000;
+}
+
+.sentence_limit{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Login.html */
+
+.block_login{
+  width: 300px;
+  text-align: center;
+  margin:auto;
+  border:solid 3px #000;
+  border-radius:10px;
+}
+
+/* edit_monthly.html */
+.schedule_month{
+  text-align: center;
+}
+
+/* record */
+.record_list{
+  display: table;
+  margin:auto;
+  width:70%;
+  border:solid 3px #000;
+}
+
+.filename{
+  display: table-cell;
+  text-align:left;
+}
+
+.date{
+  display: table-cell;
+  text-align: center;
+}
+
+.person{
+  display: table-cell;
+  text-align: right;
+}

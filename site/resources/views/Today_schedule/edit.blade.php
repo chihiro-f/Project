@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>部員サイト</title>
     <link rel ="stylesheet" href="css/style_today.css">
+    <!--<link href="css/style.css" rel ="stylesheet">-->
     <!--<link href ="https:fonts.googleapis.com/css?family=Nunito:200,600">-->
   </head>
 

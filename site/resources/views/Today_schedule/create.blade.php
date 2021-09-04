@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype HTML>
 <html lang = "{{ str_replace('_', '-', app()->getLocale() ) }}">
 <html>
   <head>
@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>部員サイト</title>
     <link rel ="stylesheet" href="css/style_today.css">
+    <!--<link href="css/style.css" rel ="stylesheet">-->
   </head>
 
   <body>
@@ -19,7 +20,8 @@
         <li><a href="/network">連絡網</a></li>
       </ul>
     </header>
-
+    
+  
     <form action="/today" method="POST">
     @csrf
     <div class = 'schedule_month'>
@@ -32,7 +34,7 @@
       <!-- スケジュール入力 -->
       <h4>スケジュール内容</h4>
       <textarea name="today_schedule[content]" placeholder="本日のスケジュール内容を記入してください" value="{{ old('today_schedule.content') }}"></textarea>
-      <p class="body_error" style="color:red">{{ $errors->first('today_schedule.content') }}</p>
+      <p class="content_error" style="color:red">{{ $errors->first('today_schedule.content') }}</p>
       <br><br>
       <input type="submit" value="投稿" />
       <br><br><!-- 間 -->
@@ -40,7 +42,7 @@
     <p></p>
     </form>
 
-    <a href="/today">戻る</a>
+    <a href="/home">戻る</a>
   </body>
 
 </html>
