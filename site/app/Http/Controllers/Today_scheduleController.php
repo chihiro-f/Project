@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Today_schedule;
-// use Illuminate\Http\Request;
 use App\Http\Requests\Today_scheduleRequest;
+use Illuminate\Http\Request;
 
 class Today_scheduleController extends Controller
 {
-    //
-    public function index(Today_schedule $today_schedule){
-        return view('Today_schedule.index')->with([ 'today_schedules' => $today_schedule->getByLimit() ]);
+    public function index(Today_schedule $today_schedule, Today_scheduleRequest $request){
+        return view('Today_schedule.index')->with([ 'today_schedules' => $today_schedule->getByLimit()]);
     }
     
     public function show(Today_schedule $today_schedule){
@@ -21,7 +20,7 @@ class Today_scheduleController extends Controller
         return view('Today_schedule.create');
     }
 
-    public function store(Today_scheduleRequest $request, Today_schedule $today_schedule){
+    public function store(Request $request, Today_schedule $today_schedule){
         $input = $request['today_schedule'];
         $today_schedule->fill($input)->save();
         return redirect('/today/' . $today_schedule->id);
@@ -31,9 +30,9 @@ class Today_scheduleController extends Controller
         return view('Today_schedule.edit')->with(['today_schedule'=>$today_schedule]);
     }
     
-    public function update(Today_scheduleRequest $request, Today_schedule $today_schedule){
-        $input_today = $request['today_schedule'];
-        $today_schedule->fill($input_today)->save();
-        return redirect('/today/' . $today_schedule->id);
+    public function update(Request $request, Today_schedule $today_schedule){
+        $input = $request['today_schedule'];
+        $today_schedule->fill($input)->save();
+        return redirect('/today/' .$today_schedule->id);
     }
 }

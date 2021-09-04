@@ -8,9 +8,8 @@ class Today_schedule extends Model
 {
     //Today_schedule.php
     
-    protected $fillable=[
-        'title',
-        'content',
+    protected $guarded=[
+        'id'
     ];
         
     

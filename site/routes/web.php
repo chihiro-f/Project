@@ -10,16 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/today','Today_scheduleController@index');
+
+Route::get('/home', 'Today_scheduleController@index');
 Route::get('/today/create','Today_scheduleController@create');
 Route::get('/today/{today_schedule}/edit','Today_scheduleController@edit');
 Route::get('/today/{today_schedule}', 'Today_scheduleController@show');
-Route::post('/today','Today_scheduleController@store');
+Route::post('/today', 'Today_scheduleController@store');
 Route::put('/today/{today_schedule}','Today_scheduleController@update');
 
 Route::get('/monthly_schedule/{monthly_schedule}/edit','Monthly_scheduleController@edit');
-Route::get('/monthly_schedule/{monthly_schedule}', 'Monthly_scheduleController@show');
 Route::put('/monthly_schedule/{monthly_schedule}','Monthly_scheduleController@update');
+Route::get('/monthly_schedule/{monthly_schedule}', 'Monthly_scheduleController@show');
 
 Route::get('/network', 'NetworkController@index');
 Route::get('/record', 'RecordController@index');

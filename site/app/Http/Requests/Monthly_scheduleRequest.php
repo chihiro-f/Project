@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Today_scheduleRequest extends FormRequest
+class Monthly_scheduleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class Today_scheduleRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -25,8 +25,8 @@ class Today_scheduleRequest extends FormRequest
     {
         return [
             //
-            'today_schedule.title' => 'required|string|max:15',
-            'today_schedule.content' => 'required|string|max:4000',
+            'post.title' => 'required|string|max:40',
+            'post.body' => 'required|string|max:4000',
         ];
     }
 }
