@@ -10,8 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function() {
+    return view('welcome');
+});
 
-Route::get('/home', 'Today_scheduleController@index');
+
+Route::get('/top', 'Today_scheduleController@index');
 Route::get('/today/create','Today_scheduleController@create');
 Route::get('/today/{today_schedule}/edit','Today_scheduleController@edit');
 Route::get('/today/{today_schedule}', 'Today_scheduleController@show');
@@ -28,3 +32,6 @@ Route::post('/network', 'NetworkController@store');
 
 Route::get('/record', 'RecordController@index');
 Route::get('/user', 'UserController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
