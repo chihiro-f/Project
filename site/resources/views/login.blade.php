@@ -10,9 +10,9 @@
     <div class="block_login">
       <h3>ユーザーログイン</h3>
       <h5>ID</h5>
-      <input type="text" placeholder="IDを入力">
+      <input type="text" placeholder="IDを入力" value="{{ old('user.id') }}"/>
       <h5>パスワード</h5>
-      <p><input type="text" placeholder="パスワードを入力" /></p>
+      <p><input type="text" placeholder="パスワードを入力" value="{{ old('user.password') }}"/></p>
       <input type="submit" value="ログイン" />
       <p></p>
     </div>

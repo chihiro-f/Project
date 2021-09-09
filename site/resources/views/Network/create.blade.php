@@ -33,8 +33,8 @@
               <input type="text" name="network[title]" placeholder="タイトルを入力" value="{{ old('network.title') }}" >
               <p class="title_error" style="color:red">{{ $errors->first('today_schedule.title') }}</p>
               
-              <!-- スケジュール入力 -->
-              <h4>スケジュール内容</h4>
+              <!-- 連絡内容入力 -->
+              <h4>連絡内容</h4>
               <textarea name="network[content]" placeholder="連絡事項を記入してください" value="{{ old('network.content') }}"></textarea>
               <p class="content_error" style="color:red">{{ $errors->first('network.content') }}</p><br><br>
               
