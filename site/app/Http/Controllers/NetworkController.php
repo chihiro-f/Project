@@ -26,16 +26,14 @@ class NetworkController extends Controller
     }
 
     public function store(Request $request){
-        $form = $request->all();
         
         $user=Auth::user();
-        $network=new Network();
         
-        unset($form['_token']);
-        $network->title = $request->title;
-        $network->content=$request->content;
-        $network->user_id=$request->user_id;
-        // $network->user_id=$user->id;
+        $network = new Network();
+        $network->title = $request->input('network.title');
+        $network->content = $request->input('network.content');
+        $network->user_id=$user->id;
+        
         $network->save();
         
         return redirect('/network/' . $network->id);

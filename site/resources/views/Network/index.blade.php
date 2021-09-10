@@ -27,9 +27,7 @@
       @if ($networks->count() > 0)
         @foreach ($networks as $network)
           <div class ='network_packet'>
-          <p><a href>{{ $network->title }}</a>　　by 投稿者2　　投稿日：{{ $network->updated_at }}</p>
-          <!--<p><a href>T i t l e 5</a>　　by 投稿者2　　投稿日：2021/08/05</p>-->
-          <!-- <p class ='sentence_limit'>This is body. This is body. This is body. This is body. This is body. This is body. This is body. This is body. This is body. This is body. This is body.</p> -->
+          <p><a href="/network/{{ $network->id }}">{{ $network->title }}</a>　　by 投稿者2　　投稿日：{{ $network->updated_at }}</p>
           <p class ='sentence_limit'>{{ $network->content }}</p>
           </div>
         @endforeach

@@ -31,6 +31,7 @@ Route::get('/monthly_schedule', 'Monthly_scheduleController@show');
 
 Route::get('/network', 'NetworkController@index');
 Route::get('/network/create','NetworkController@create');
+Route::get('/network/{network}', 'NetworkController@show');
 Route::post('/network', 'NetworkController@store');
 
 Route::get('/record', 'RecordController@index');
