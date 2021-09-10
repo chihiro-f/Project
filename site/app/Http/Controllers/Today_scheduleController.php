@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Today_schedule;
 use App\Http\Requests\Today_scheduleRequest;
 use Illuminate\Http\Request;
 
 class Today_scheduleController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     public function index(Today_schedule $today_schedule){
         return view('Today_schedule.index')->with([ 'today_schedules' => $today_schedule->getByLimit()]);
     }

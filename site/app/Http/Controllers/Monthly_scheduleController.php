@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Monthly_schedule;
 use App\Http\Requests\Monthly_scheduleRequest;
 use Illuminate\Http\Request;
 
 class Monthly_scheduleController extends Controller
 {
-    //
-
+    public function __construct() {
+        $this->middleware('auth');
+    }
+    
     public function show(Monthly_schedule $monthly_schedule){
         return view('Monthly_schedule.show')->with([ 'monthly_schedules' => $monthly_schedule ]);
     }

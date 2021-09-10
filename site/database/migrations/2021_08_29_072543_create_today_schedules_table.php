@@ -25,12 +25,12 @@ class CreateTodaySchedulesTable extends Migration
             //<!-- deleted_at　論理削除 -->
             $table->softDeletes();
             
-            //<!-- comment_id 設定 -->
-            $table->integer('comment_id')->unsigned();
-            //<!-- 外部キー制約 -->
-            $table->foreign('comment_id')
-                    ->references('id')->on('comments')
-                    ->onDelete('cascade');
+            // //<!-- comment_id 設定 -->
+            // $table->integer('comment_id')->unsigned();
+            // //<!-- 外部キー制約 -->
+            // $table->foreign('comment_id')
+            //         ->references('id')->on('comments')
+            //         ->onDelete('cascade');
         });
     }
 
@@ -41,9 +41,9 @@ class CreateTodaySchedulesTable extends Migration
      */
     public function down()
     {
-        Schema::table('today_schedules',function($table){
-            $table->dropForeign(['comment_id']);
-        });
+        // Schema::table('today_schedules',function($table){
+        //     $table->dropForeign(['comment_id']);
+        // });
         // Schema::drop('today_schedules');
         Schema::dropIfExists('today_schedules');
     }

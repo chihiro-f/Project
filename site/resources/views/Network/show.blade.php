@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="css/style_network.css">
+    <link href="{{secure_asset('/css/style_today.css')}}" rel="stylesheet">
   </head>
 
   <body>
@@ -13,7 +13,7 @@
     <header>
       <ul>
         <li><a href="/home">Home</a></li>
-        <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
+        <li><a href="/monthly_schedule">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
