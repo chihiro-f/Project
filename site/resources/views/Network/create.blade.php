@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link rel ="stylesheet" href="css/style_network.css">
+    <link href="{{secure_asset('/css/style_network.css')}}" rel="stylesheet">
   </head>
 
   <body>
@@ -14,7 +14,7 @@
     <header>
       <ul>
         <li><a href="/home">Home</a></li>
-        <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
+        <li><a href="/monthly_schedule">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
@@ -31,7 +31,7 @@
               <!-- タイトル入力 -->
               <h4>タイトル</h4>
               <input type="text" name="network[title]" placeholder="タイトルを入力" value="{{ old('network.title') }}" >
-              <p class="title_error" style="color:red">{{ $errors->first('today_schedule.title') }}</p>
+              <p class="title_error" style="color:red">{{ $errors->first('network.title') }}</p>
               
               <!-- 連絡内容入力 -->
               <h4>連絡内容</h4>

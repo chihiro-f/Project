@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Today_schedule;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Today_schedule $today_schedule)
     {
-        return view('home');
+        return view('Today_schedule.index')->with(['today_schedules' => $today_schedule->getByLimit()]);
     }
 }

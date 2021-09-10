@@ -8,7 +8,6 @@ class Network extends Model
 {
     protected $guarded=[
         'id',
-        'user_id',
     ];
     
     public function getPaginateByLimit(int $limit_count = 10){

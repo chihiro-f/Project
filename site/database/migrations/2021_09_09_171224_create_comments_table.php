@@ -29,6 +29,14 @@ class CreateCommentsTable extends Migration
             $table->foreign('user_id')
                     ->references('id')->on('users')
                     ->onDelete('cascade');
+            
+            
+            // <!-- today_schedule_id 設定 -->
+            $table->integer('today_schedule_id')->unsigned();
+            //<!-- 外部キー制約 -->
+            $table->foreign('today_schedule_id')
+                    ->references('id')->on('today_schedules')
+                    ->onDelete('cascade');
         });
     }
 
@@ -41,8 +49,10 @@ class CreateCommentsTable extends Migration
     {
         Schema::table('comments',function($table){
             $table->dropForeign(['user_id']);
+            $table->dropForeign(['today_schedule_id']);
         });
         // Schema::drop('comments');
         Schema::dropIfExists('comments');
     }
 }
+
