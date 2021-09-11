@@ -13,7 +13,7 @@
     <header>
       <ul>
         <li><a href="/home">Home</a></li>
-        <li><a href="/monthly_schedule">今後の予定一覧</a></li>
+        <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
@@ -25,22 +25,27 @@
       [<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]
       <h1 class = 'title'>{{ $today_schedules->title }}</h1>
       <div class = 'context'>{{ $today_schedules->content }}</div><br>
+      
       <p></p>
     </div>
 
     <p></p>
     <div class = 'comment_list'>
       <h5 class = 'title'>コメント一覧</h5>
-      <p class = 'comment1'><h5>投稿者１</h5><h4>コメント１の内容</h4></p><br>
+      <!--<p class = 'comment1'><h5>投稿者１</h5><h4>コメント１の内容</h4></p><br>-->
+      <p class = 'comment'><h5>投稿者１</h5><h4>{{ $today_schedule->comment->content }}</h4></p><br>
     </div>
 
     <p></p>
+    <form action="{{ route('comment.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="comment[today_schedule]" value="{{ $today_schedules->id }}">
     <div class = 'comment_post'>
       <h5 class = 'title'>コメント投稿</h5>
-      <textarea name="comment_content" placeholder="コメントを入力" ></textarea>
-      <input type="submit" value="投稿">
-      <p></p>
+      <textarea name="comment[content]" placeholder="コメントを入力" ></textarea>
+      <input type="submit" value="投稿"><br>
     </div>
+    </form>
 
     <p></p>
 

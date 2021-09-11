@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use App\Today_schedule;
 use App\Http\Requests\Today_scheduleRequest;
 use Illuminate\Http\Request;
@@ -27,6 +28,7 @@ class Today_scheduleController extends Controller
     public function store(Request $request, Today_schedule $today_schedule){
         $input = $request['today_schedule'];
         $today_schedule->fill($input)->save();
+        
         return redirect('/today/' . $today_schedule->id);
     }
 

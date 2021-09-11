@@ -26,7 +26,6 @@ class NetworkController extends Controller
     }
 
     public function store(Request $request){
-        
         $user=Auth::user();
         
         $network = new Network();
