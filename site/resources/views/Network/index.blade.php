@@ -27,7 +27,7 @@
       @if ($networks->count() > 0)
         @foreach ($networks as $network)
           <div class ='network_packet'>
-            <p><a href="/network/{{ $network->id }}">{{ $network->title }}</a>　by {{ $network->user->email}}　投稿日：{{ $network->created_at }}</p>
+            <p><a href="/network/{{ $network->id }}">{{ $network->title }}</a>　投稿者 : {{ $network->user->email}}　投稿日：{{ $network->created_at }}</p>
             <p class ='sentence_limit'>{{ $network->content }}</p>
           </div>
         @endforeach

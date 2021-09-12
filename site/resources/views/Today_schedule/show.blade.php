@@ -32,8 +32,13 @@
     <p></p>
     <div class = 'comment_list'>
       <h5 class = 'title'>コメント一覧</h5>
-      <!--<p class = 'comment1'><h5>投稿者１</h5><h4>コメント１の内容</h4></p><br>-->
-      <p class = 'comment'><h5>投稿者１</h5><h4>{{ $today_schedule->comment->content }}</h4></p><br>
+      <!--@if ($comments->count() > 0)-->
+      <!--@foreach($comments as $comment)-->
+      <p class = 'comment'><h5>投稿者１</h5><h4>{{ $comment->content }}</h4></p><br>
+      <!--@endforeach-->
+      <!--@else-->
+      <!--  コメントはまだ投稿されていません<br>-->
+      <!--@endif-->
     </div>
 
     <p></p>

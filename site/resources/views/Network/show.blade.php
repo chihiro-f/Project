@@ -19,13 +19,15 @@
       </ul>
     </header>
 
-    <h2 class='title'>連絡網</h2>
-    <div class='network_list'>
-      <!-- <p><h2>T i t l e 5</h2><h4>by 投稿者2</h4><h5>投稿日：2021/08/05</h5></p> -->
-      <p><h2>{{ $networks->title }}</h2><h4>{{ $networks->user_id }}</h4><h5>{{ $networks->created_at }}</h5></p>
-      <p></p>
-      <p class = 'content'>{{ $networks->content }}</p>
+    <div class='network_packet'>
+      <h1 class='title'>連絡網</h1>
+      <div class='context'>
+        <h1 class = 'title'>{{ $networks->title }}</h1>
+        <h5>編集者 : {{ $networks->user->email }}</h5>
+        <h5>投稿日 : {{ $networks->created_at }}</h5>
+        <p class = 'context'>{{ $networks->content }}</p><br>
+      </div>
     </div>
-    <a href="/">戻る</a>
+    <a href="/network">戻る</a>
   </body>
 </html>

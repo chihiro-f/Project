@@ -32,7 +32,7 @@
       
       <!-- スケジュール入力 -->
       <h4>スケジュール内容</h4>
-      <textarea name="today_schedule[content]" placeholder="本日のスケジュール内容を記入してください" value="{{ old('today_schedule.content') }}"></textarea>
+      <textarea name="today_schedule[content]" placeholder="本日のスケジュール内容を記入してください" value="{{ old('today_schedule.content') }}" rows="6" cols="100"></textarea>
       <p class="content_error" style="color:red">{{ $errors->first('today_schedule.content') }}</p>
       <br><br>
       <input type="submit" value="投稿" />
