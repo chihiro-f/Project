@@ -4,13 +4,14 @@
 }
 
 .network_list{
-  margin:auto;
-  width:90%;
   text-align: center;
+  margin:auto;
   outline:2px solid #000;
+  width:90%;
 }
 
 .network_packet{
+  text-align: center;
   width: 80%;
   margin:auto;
   outline:2px solid #000;

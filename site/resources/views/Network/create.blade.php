@@ -21,7 +21,7 @@
     </header>
     
     <div class='network_list'><br>
-      <h2 class='title'>連絡網</h2>
+      <h1 class='title'>連絡網</h1>
       
       <form action="/network" method="POST">
           @csrf

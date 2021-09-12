@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>部員サイト</title>
-    <link href="{{secure_asset('/css/style_today.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('/css/style_network.css')}}" rel="stylesheet">
   </head>
 
   <body>
@@ -18,16 +18,18 @@
         <li><a href="/network">連絡網</a></li>
       </ul>
     </header>
-
-    <div class='network_packet'>
+    
+    <div class='network_list'><br>
       <h1 class='title'>連絡網</h1>
-      <div class='context'>
-        <h1 class = 'title'>{{ $networks->title }}</h1>
-        <h5>編集者 : {{ $networks->user->email }}</h5>
-        <h5>投稿日 : {{ $networks->created_at }}</h5>
-        <p class = 'context'>{{ $networks->content }}</p><br>
-      </div>
-    </div>
+      
+      <div class='network_packet'>
+          <h1 class = 'title'>{{ $networks->title }}</h1>
+          <h5>編集者 : {{ $networks->user->email }}</h5>
+          <h5>投稿日 : {{ $networks->created_at }}</h5>
+          <p class = 'context'>{{ $networks->content }}</p><br>
+      </div><br><br>
+    </div><br>
     <a href="/network">戻る</a>
+    
   </body>
 </html>
