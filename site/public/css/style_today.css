@@ -40,7 +40,7 @@
 .schedule_month{
   width:90%;
   margin:auto;
-  /*border:solid 3px #000;*/
+  text-align: center;
   outline:2px solid #000;
 }
 

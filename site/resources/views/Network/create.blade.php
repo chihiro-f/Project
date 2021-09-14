@@ -21,7 +21,7 @@
     </header>
     
     <div class='network_list'><br>
-      <h2 class='title'>連絡網</h2>
+      <h1 class='title'>連絡網</h1>
       
       <form action="/network" method="POST">
           @csrf
@@ -35,7 +35,7 @@
               
               <!-- 連絡内容入力 -->
               <h4>連絡内容</h4>
-              <textarea name="network[content]" placeholder="連絡事項を記入してください" value="{{ old('network.content') }}"></textarea>
+              <textarea name="network[content]" placeholder="連絡事項を記入してください" value="{{ old('network.content') }}" rows="6" cols="100"></textarea>
               <p class="content_error" style="color:red">{{ $errors->first('network.content') }}</p><br><br>
               
               <input type="submit" value="投稿" /><br><br>

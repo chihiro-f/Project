@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Today_schedule;
+use App\Comment;
 use App\Http\Requests\Today_scheduleRequest;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,13 @@ class Today_scheduleController extends Controller
     }
     
     public function show(Today_schedule $today_schedule){
-        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule]);
+        $comment=Comment::all();
+        //作業用変数
+
         //変数名=>値
+        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment]);
     }
+    
     public function create(){
         return view('Today_schedule.create');
     }

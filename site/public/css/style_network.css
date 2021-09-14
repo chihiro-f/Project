@@ -6,11 +6,12 @@
 .network_list{
   text-align: center;
   margin:auto;
-  width:90%;
   outline:2px solid #000;
+  width:90%;
 }
 
 .network_packet{
+  text-align: center;
   width: 80%;
   margin:auto;
   outline:2px solid #000;
@@ -20,6 +21,13 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.context{
+  width:70%;
+  margin: auto;
+  text-align: center;
+  outline:2px solid #000;
 }
 
 

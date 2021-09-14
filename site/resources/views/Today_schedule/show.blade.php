@@ -25,23 +25,27 @@
       [<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]
       <h1 class = 'title'>{{ $today_schedules->title }}</h1>
       <div class = 'context'>{{ $today_schedules->content }}</div><br>
-      
-      <p></p>
     </div>
 
-    <p></p>
+    <br>
     <div class = 'comment_list'>
-      <h5 class = 'title'>コメント一覧</h5>
-      <!--<p class = 'comment1'><h5>投稿者１</h5><h4>コメント１の内容</h4></p><br>-->
-      <p class = 'comment'><h5>投稿者１</h5><h4>{{ $today_schedule->comment->content }}</h4></p><br>
+      <h3 class = 'title'>コメント一覧</h3>
+      @if ($comments->count() > 0)
+      <h5>　投稿者　　　　　　　　　　　　　コメント内容</h5>
+      @foreach($comments as $comment)
+      <p class = 'comment'>　{{ $comment->user->email }}　　　{{ $comment->content }}</p><br>
+      @endforeach
+      @else
+        コメントはまだ投稿されていません<br>
+      @endif
     </div>
 
-    <p></p>
+    <br>
     <form action="{{ route('comment.store') }}" method="POST">
     @csrf
     <input type="hidden" name="comment[today_schedule]" value="{{ $today_schedules->id }}">
     <div class = 'comment_post'>
-      <h5 class = 'title'>コメント投稿</h5>
+      <h3 class = 'title'>コメント投稿</h3>
       <textarea name="comment[content]" placeholder="コメントを入力" ></textarea>
       <input type="submit" value="投稿"><br>
     </div>
