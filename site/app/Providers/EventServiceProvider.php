@@ -18,6 +18,11 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        // 下記を追加
+        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+            'SocialiteProviders\\Graph\\GraphExtendSocialite@handle',
+        ],
+        // ここまで
     ];
 
     /**

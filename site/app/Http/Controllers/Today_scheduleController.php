@@ -21,12 +21,11 @@ class Today_scheduleController extends Controller
     public function show(Today_schedule $today_schedule){
         $comment=Comment::all();
         //作業用変数
-        $i=0;
-        
-        dd($comment[$i]->content);
-        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment]);
+
         //変数名=>値
+        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment]);
     }
+    
     public function create(){
         return view('Today_schedule.create');
     }
