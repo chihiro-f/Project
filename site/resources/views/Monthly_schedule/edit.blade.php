@@ -10,14 +10,15 @@
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
     
-    <header>
+    <nav>
       <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
-    </header>
+    </nav>
+    <br><br>
 
     <form action="/monthly_schedule/{{ $monthly_schedule->id }}" method="POST">
       @csrf
@@ -26,6 +27,7 @@
     <div class = 'schedule_month'>
       <h1 class = 'title'>編集_活動日予定</h1>
       <input type="text" name="monthly_schedule[content]" value="{{ $monthly_schedule->content }}"/>
+      <p class="content_error" style="color:red">{{ $errors->first('monthly_schedule.content') }}</p>
       <p></p>
       <input type="submit" value="更新" /><br><br>
     </div><br>

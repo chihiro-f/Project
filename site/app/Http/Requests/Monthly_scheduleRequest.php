@@ -13,7 +13,7 @@ class Monthly_scheduleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,9 +24,7 @@ class Monthly_scheduleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'post.title' => 'required|string|max:40',
-            'post.body' => 'required|string|max:4000',
+            'monthly_schedule.content' => 'required|string|max:4000',
         ];
     }
 }

@@ -30,7 +30,7 @@ class Today_scheduleController extends Controller
         return view('Today_schedule.create');
     }
 
-    public function store(Request $request, Today_schedule $today_schedule){
+    public function store(Today_scheduleRequest $request, Today_schedule $today_schedule){
         $input = $request['today_schedule'];
         $today_schedule->fill($input)->save();
         
@@ -41,7 +41,7 @@ class Today_scheduleController extends Controller
         return view('Today_schedule.edit')->with(['today_schedule'=>$today_schedule]);
     }
     
-    public function update(Request $request, Today_schedule $today_schedule){
+    public function update(Today_scheduleRequest $request, Today_schedule $today_schedule){
         $input = $request['today_schedule'];
         $today_schedule->fill($input)->save();
         return redirect('/today/' .$today_schedule->id);

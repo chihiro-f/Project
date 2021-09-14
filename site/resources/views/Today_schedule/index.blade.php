@@ -11,14 +11,15 @@
   <body>
     <h2 class = 'title_cite'>部員サイト</h2>
 
-    <header>
+    <nav>
       <ul>
         <li><a href="/home">Home</a></li>
         <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
         <li><a href="/record">練習録音</a></li>
         <li><a href="/network">連絡網</a></li>
       </ul>
-    </header>
+    </nav>
+    <br><br>
 
     <div class ='schedule_today'><br>
       <h1>一日のスケジュール</h1>
@@ -26,7 +27,7 @@
       <div class ='list_week'>
         
         <div class = 'list'>
-          <h5>１週間のスケジュール</h5>
+          <h3>１週間のスケジュール</h3>
           @foreach($today_schedules as $today_schedule)
           <p>[<a href="/today/{{ $today_schedule->id }}">{{ $today_schedule->title }}</a>]</p>
           <p></p>
