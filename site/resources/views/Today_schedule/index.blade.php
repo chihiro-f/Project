@@ -1,42 +1,47 @@
-<!doctype HTML>
-<html lang = "{{ str_replace('_', '-', app()->getLocale() ) }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>部員サイト</title>
-    <link href="{{secure_asset('/css/style_today.css')}}" rel="stylesheet">
+@extends('layouts.app')
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>@yield('title')部員サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+  <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+</head>
 
-  </head>
-
-  <body>
-    <h2 class = 'title_cite'>部員サイト</h2>
-
-    <nav>
-      <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/monthly_schedule/1">今後の予定一覧</a></li>
-        <li><a href="/record">練習録音</a></li>
-        <li><a href="/network">連絡網</a></li>
-      </ul>
-    </nav>
-    <br><br>
-
-    <div class ='schedule_today'><br>
-      <h1>一日のスケジュール</h1>
-      [<a href='/today/create'>新規スケジュールを作成</a>]
-      <div class ='list_week'>
-        
-        <div class = 'list'>
-          <h3>１週間のスケジュール</h3>
+<body>
+  
+  
+  @section('content')
+  <ul class="nav nav-pills nav-fill">
+    <li class="nav-item"><a class="nav-link active" href="/home">　Home　</a></li>
+    <li class="nav-item"><a class="nav-link" href="/monthly_schedule/1">　今後の予定一覧　</a></li>
+    <li class="nav-item"><a class="nav-link" href="/record">　練習録音　</a></li>
+    <li class="nav-item"><a class="nav-link" href="/network">　連絡網　</a></li>
+  </ul><br>
+  
+  
+  <div class='container'>
+    <div class="card text-center w-75 mx-auto">
+      <div class="flex-center position-ref full-height">
+        <div class ='card-body'>
+          <h1 class='title'>一日のスケジュール</h1>
+          <p>[<a href='/today/create'>新規スケジュールを作成</a>]</p>
+        </div>
+      </div>
+    </div><br>
+  <div class="card text-center w-75 mx-auto">
+    <div class="flex-center position-ref full-height">
+      <div class ='card-body'>
+        <div class="card-body">
+          <h3 class='card-title'>１週間のスケジュール</h3><br>
           @foreach($today_schedules as $today_schedule)
-          <p>[<a href="/today/{{ $today_schedule->id }}">{{ $today_schedule->title }}</a>]</p>
-          <p></p>
+          <p>[<a href="/today/{{ $today_schedule->id }}">{{ $today_schedule->title }}</a>]</p><br>
           @endforeach
         </div>
-        
-      </div><br>
+      </div>
     </div>
-
-  </body>
-
-  </html>
+  </div>
+  </div>
+  @endsection
+  
+</body>

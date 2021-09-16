@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function() {
-    return view('test');
+    return view('welcome');
 });
 
 
@@ -40,3 +40,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('comment', 'CommentController', ['only' => ['store']]);
 
 Route::get('/watchword','WatchwordController@show');
+
+Route::get('/signin', 'AuthController@signin');
+Route::get('/callback', 'AuthController@callback');

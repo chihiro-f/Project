@@ -19,7 +19,8 @@ class Today_scheduleController extends Controller
     }
     
     public function show(Today_schedule $today_schedule){
-        $comment=Comment::all();
+        // dd($today_schedule->id);
+        $comment=Comment::where('today_schedule_id', $today_schedule->id)->get();
         //作業用変数
 
         //変数名=>値
