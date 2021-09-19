@@ -14,28 +14,45 @@ class RecordController extends Controller
     }
     
     public function index(Record $record, Request $request){
+        //アクセストークンの取得
+        $options =[
+            'form_params'=>[
+                // 'client_id'=> '0229b4e5-3892-4e95-9399-171f4004760a',
+                'client_id'=> env('OAUTH_APP_ID'),
+                'scope'=>env('OAUTH_SCOPES'),
+                'client_secret'=> env('OAUTH_APP_SECRET'),
+                'grant_type'=>'client_credentials',
+            ],
+        ];
+        $guzzle= new Client();
+        $json = json_decode(
+            $guzzle->post(
+                'https://login.microsoftonline.com/'.env('OAUTH_APP_TENANT').'/oauth2/v2.0/token',
+                $options
+            )
+            ->getBody()
+            ->getContents()
+        );
+        $accessToken = $json->access_token;
+        dd($accessToken);
         
-        // $tag_id = "laravel";
+        
+        //データの取得
+        $options=[
+            'headers' =>[
+                'Authorization'=>'Bearer ' . $json->access_token
+            ],
+            // 'body'=>fopen('file path','r'),
+        ];
+        // $guzzle= new Client();
+        $json=json_decode(
+            $guzzle->get(
+                'https://graph.microsoft.com/v1.0/me/drive/root/children'
+            )
+            ->getBody()
+            ->getContents()
+        );
 
-        // $url = "https://qiita.com/api/v2/tags/" . $tag_id . "/items?page=1&per_page=20";
-        // $url = "https://graph.microsoft.com/v1.0/me/drive/root/children";
-        // $url="https://login.live.com/oauth20_authorize.srf?client_id={client_id}&scope={scope}&response_type=token&redirect_uri={redirect_uri}";
-        $url="https://graph.microsoft.com/v1.0/users/{id}";
-        
-        $method = "GET";
-
-        //接続
-        $client = new Client();
-        
-        // getBody()メソッドを使用してメッセージの本文を取得
-        $response = $client->request($method, $url);
-        
-        // dd($response);
-
-        $records = $response->getBody();
-        // JSON文字列を配列に変換
-        $records = json_decode($records, true);
-        
         
         return view('Record.index')->with([ 'records' => $records]);  
     }
