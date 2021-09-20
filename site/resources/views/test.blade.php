@@ -13,8 +13,8 @@
   
   @section('content')
   <ul class="nav nav-pills nav-fill">
-    <li class="nav-item"><a class="nav-link" href="/home">　Home　</a></li>
-    <li class="nav-item"><a class="nav-link active" href="/monthly_schedule/1">　今後の予定一覧　</a></li>
+    <li class="nav-item"><a class="nav-link active" href="/home">　Home　</a></li>
+    <li class="nav-item"><a class="nav-link" href="/monthly_schedule/1">　今後の予定一覧　</a></li>
     <li class="nav-item"><a class="nav-link" href="/record">　練習録音　</a></li>
     <li class="nav-item"><a class="nav-link" href="/network">　連絡網　</a></li>
   </ul><br>
@@ -23,25 +23,17 @@
   <div class="card text-center w-75 mx-auto">
     <div class="flex-center position-ref full-height">
       <div class ='card-body'>
-        <h1 class='card-title'>編集 [活動日予定]</h1>
+        <p>[<a href="/">このスケジュールを編集</a>]</p>
+        <h1 class='card-title'>活動日予定</h1>
+        <p class = 'card-subtitle text-muted'>updated_at</p>
+        <p class = 'text-muted'> email</p>
+        <h3>content</h3>
         
-        <form action="/monthly_schedule/{{ $monthly_schedule->id }}" method="POST">
-          @csrf
-          @method('PUT')
-          <div class = 'schedule_month'>
-            <input type="text" name="monthly_schedule[content]" value="{{ $monthly_schedule->content }}"/>
-            <p class="content_error" style="color:red">{{ $errors->first('monthly_schedule.content') }}</p><br>
-            <input type="submit" class="btn btn-outline-info" value="更新" /><br><br>
-          </div><br>
-        </form>
         
       </div>
-      <a href="/monthly_schedule/1">戻る</a>
     </div>
   </div>
-  
   </div>
   @endsection
   
 </body>
-
