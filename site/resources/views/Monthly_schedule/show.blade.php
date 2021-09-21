@@ -29,14 +29,14 @@
         </div>
       </div>
     </div><br>
-  <div class="card text-center w-75 mx-auto">
-    <div class="flex-center position-ref full-height">
-      <div class ='card-body'>
-        <p>[<a href="/monthly_schedule/{{ $monthly_schedules->id }}/edit">このスケジュールを編集</a>]</p>
-        <h3>{{ $monthly_schedules->content }}</h3>
+    <div class="card text-center w-75 mx-auto">
+      <div class="flex-center position-ref full-height">
+        <div class ='card-body'>
+          <p>[<a href="/monthly_schedule/{{ $monthly_schedules->id }}/edit">このスケジュールを編集</a>]</p>
+          <h3>{{ $monthly_schedules->content }}</h3>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   @endsection
   

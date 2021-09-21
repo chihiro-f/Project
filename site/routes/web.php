@@ -32,6 +32,10 @@ Route::get('/network/{network}', 'NetworkController@show');
 Route::post('/network', 'NetworkController@store');
 
 Route::get('/record', 'RecordController@index');
+Route::get('/record/create','RecordController@create');
+Route::post('/record', 'RecordController@store');
+Route::get('/record/search','RecordController@search');
+
 Route::get('/user', 'UserController@index');
 Auth::routes();
 
@@ -40,6 +44,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('comment', 'CommentController', ['only' => ['store']]);
 
 Route::get('/watchword','WatchwordController@show');
-
-Route::get('/signin', 'AuthController@signin');
-Route::get('/callback', 'AuthController@callback');

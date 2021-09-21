@@ -4,56 +4,47 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Record;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
+
 
 class RecordController extends Controller
 {
-    //
+    
     public function __construct() {
         $this->middleware('auth');
     }
     
-    public function index(Record $record, Request $request){
-        //アクセストークンの取得
-        $options =[
-            'form_params'=>[
-                // 'client_id'=> '0229b4e5-3892-4e95-9399-171f4004760a',
-                'client_id'=> env('OAUTH_APP_ID'),
-                'scope'=>env('OAUTH_SCOPES'),
-                'client_secret'=> env('OAUTH_APP_SECRET'),
-                'grant_type'=>'client_credentials',
-            ],
-        ];
-        $guzzle= new Client();
-        $json = json_decode(
-            $guzzle->post(
-                'https://login.microsoftonline.com/'.env('OAUTH_APP_TENANT').'/oauth2/v2.0/token',
-                $options
-            )
-            ->getBody()
-            ->getContents()
-        );
-        $accessToken = $json->access_token;
-        dd($accessToken);
-        
-        
-        //データの取得
-        $options=[
-            'headers' =>[
-                'Authorization'=>'Bearer ' . $json->access_token
-            ],
-            // 'body'=>fopen('file path','r'),
-        ];
-        // $guzzle= new Client();
-        $json=json_decode(
-            $guzzle->get(
-                'https://graph.microsoft.com/v1.0/me/drive/root/children'
-            )
-            ->getBody()
-            ->getContents()
-        );
-
-        
-        return view('Record.index')->with([ 'records' => $records]);  
+    public function index(Record $record){
+        return view('Record.index')->with([ 'records' => $record->get() ]);
+    }
+    
+    public function create(){
+        return view('Record.create');
+    }
+    
+    public function store(Request $request, Record $record){
+        $input = $request['record'];
+        $record->fill($input)->save();
+        return redirect('/record');
+    }
+    
+    public function search(Request $request){
+        $keyword_group=$request->group;
+        if(!empty($keyword_group)){
+            $query=Record::query();
+            $records=$query->where('group','like','%'.$keyword_group.'%')->get();
+            $message=$keyword_group."を含むグループの検索結果";
+            return view('/record/search/$keyword_group')->with([
+                'records'=>$records ,
+                'message'=>$message,
+            ]);
+        }elseif(empty($keyword_group)){
+            $message="グループ名を入力してください";
+            return view('/record/search')->with([
+                'message' => $message,
+            ]);
+        }else{
+            $message="検索結果はありません";
+            return view('/record/search')->with('message',$message);
+        }
     }
 }
