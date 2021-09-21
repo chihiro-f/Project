@@ -34,7 +34,7 @@
         @if ($networks->count() > 0)
         @foreach ($networks as $network)
         <li class="list-group-item">
-          <h3><a href="/network/{{ $network->id }}">{{ $network->title }}</a></3>
+          <h3><a href="/network/{{ $network->id }}">{{ $network->title }}</a></h3>
           <h5 class='text-muted'>投稿者 : {{ $network->user->email}}　投稿日：{{ $network->created_at }}</h5>
           <h5 class ='text-truncate'>{{ $network->content }}</h5>
         </li>
