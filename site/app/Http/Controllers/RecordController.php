@@ -13,8 +13,15 @@ class RecordController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(Record $record){
-        return view('Record.index')->with([ 'records' => $record->get() ]);
+    public function index(Record $record, Request $request){
+        $records=Record::orderBy('created_at','asc')->where(function ($query){
+            //検索機能
+            if($search=request('search')){
+                $query->where('person','LIKE',"%{$search}%");
+            }
+        });
+        
+        return view('Record.index')->with([ 'records' => $records->get() ]);
     }
     
     public function create(){
@@ -27,24 +34,8 @@ class RecordController extends Controller
         return redirect('/record');
     }
     
-    public function search(Request $request){
-        $keyword_group=$request->group;
-        if(!empty($keyword_group)){
-            $query=Record::query();
-            $records=$query->where('group','like','%'.$keyword_group.'%')->get();
-            $message=$keyword_group."を含むグループの検索結果";
-            return view('/record/search/$keyword_group')->with([
-                'records'=>$records ,
-                'message'=>$message,
-            ]);
-        }elseif(empty($keyword_group)){
-            $message="グループ名を入力してください";
-            return view('/record/search')->with([
-                'message' => $message,
-            ]);
-        }else{
-            $message="検索結果はありません";
-            return view('/record/search')->with('message',$message);
-        }
+    public function delete(Record $record){
+        $record->delete();
+        return redirect('/record');
     }
 }
