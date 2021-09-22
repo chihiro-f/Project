@@ -29,31 +29,45 @@
     </div>
   </div><br>
   
-  <form action="{{ url('/record/search') }}" method="post">
+  <div class="row justify-content-center">
+  <form class="form-inline">
   @csrf
   <div class="form-group">
-    <label>名前</label>
-    <input type="text" class="form-control col-md-5" placeholder="検索したいグループ名を入力してください" name="name">
+    <input type="search" class="form-control" value="{{ request('search')}}" placeholder="検索したいグループ名を入力してください" name="search" size="45">
   </div>
   <input type="submit" class="btn btn-outline-info" value="検索" />
   </form>
+  </div>
   
-  @if(session('flash_message'))
-  <div class="alert alert-primary" role="alert" style="margin-top:50px;">{{ session('flash_message')}}</div>
-  @endif
   
-  <div class="card text-center w-60 mx-auto">
+  <div class="card w-75 mx-auto">
     <div class='card-body'>
       <ul class="list-group list-group-flush">
         @if ($records->count() > 0)
         @foreach ($records as $record)
         <li class="list-group-item">
-          <h3><a href="{{ $record->url }}">{{ $record->title }}</a></h3>
-          <h5>投稿日：{{ $record->created_at }}</h5>
+          <div class="row">
+          <h3 class="col text-left"><a href="{{ $record->url }}">{{ $record->title }}</a></h3>
+          <form action="/record/{{ $record->id }}" id="form_{{ $record->id }}" method="post" style="display:inline">
+          @csrf
+          @method('DELETE')
+          <div class="col text-left">
+          <input type="submit" class="btn btn-outline-info" value="削除"><br>
+          </div>
+          </form><br>
+          </div>
+          <div class="row">
+            <div class="row col text-left">
+            <h5 class="text-muted">　投稿日：</h5><h5>{{ $record->created_at }}</h5>
+          </div>
+          <div class="row col text-right">
+            <h5 class="text-muted">グループ：</h5><h5>{{ $record->person }}</h5>
+          </div>
+          </div>
         </li>
         @endforeach
         @else
-          録音フォルダはありません<br>
+          該当する録音フォルダはありません<br>
         @endif
       </ul>
     </div>

@@ -34,7 +34,7 @@ Route::post('/network', 'NetworkController@store');
 Route::get('/record', 'RecordController@index');
 Route::get('/record/create','RecordController@create');
 Route::post('/record', 'RecordController@store');
-Route::get('/record/search','RecordController@search');
+Route::delete('/record/{record}', 'RecordController@delete');
 
 Route::get('/user', 'UserController@index');
 Auth::routes();
