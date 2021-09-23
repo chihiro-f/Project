@@ -9,8 +9,6 @@
 </head>
 
 <body>
-  
-  
   @section('content')
   <ul class="nav nav-pills nav-fill">
     <li class="nav-item"><a class="nav-link active" href="/home">　Home　</a></li>
@@ -19,13 +17,21 @@
     <li class="nav-item"><a class="nav-link" href="/network">　連絡網　</a></li>
   </ul><br>
   
+  @if(session('message'))
+  <div class="alert alert-success">{{session('message')}}</div>
+  @endif
+  
+  @if(session('message2'))
+  <div class="alert alert-danger">{{session('message2')}}</div>
+  @endif
+  
   <div class='container'>
   <div class="card text-center w-75 mx-auto">
     <div class="flex-center position-ref full-height"><br>
       <h1>一日のスケジュール</h1>
       <div class ='card-body'>
-        <p class = 'card-subtitle text-muted'>投稿日：{{ $today_schedules->created_at }}</p>
-        <p class = 'card-subtitle text-muted'>更新日：{{ $today_schedules->updated_at }}</p><br>
+        <p class = 'card-subtitle text-muted'>更新日：{{ $today_schedules->updated_at }}</p>
+        <p class = 'card-subtitle text-muted'>投稿者：{{ $today_schedules->user->email }}</p><br>
         <p>[<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]</p>
         <h1 class='card-title'>{{ $today_schedules->title }}</h1><br>
         <p>{{ $today_schedules->content }}</p>
