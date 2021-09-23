@@ -35,7 +35,7 @@
         <div class="card-body">
           <h3 class='card-title'>１週間のスケジュール</h3><br>
           @foreach($today_schedules as $today_schedule)
-          <p>[<a href="/today/{{ $today_schedule->id }}">{{ $today_schedule->title }}</a>]</p><br>
+          <h4>[<a href="/today/{{ $today_schedule->id }}">{{ $today_schedule->title }}</a>]</h4><br>
           @endforeach
         </div>
       </div>

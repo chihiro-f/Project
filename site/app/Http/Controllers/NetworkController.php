@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Network;
 use App\User;
+use App\Http\Requests\NetworkRequest;
 use Illuminate\Http\Request;
 
 class NetworkController extends Controller
@@ -25,7 +26,7 @@ class NetworkController extends Controller
         return view('Network.create');
     }
 
-    public function store(Request $request){
+    public function store(NetworkRequest $request){
         $user=Auth::user();
         
         $network = new Network();

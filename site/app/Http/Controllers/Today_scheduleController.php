@@ -19,12 +19,12 @@ class Today_scheduleController extends Controller
     }
     
     public function show(Today_schedule $today_schedule){
-        // dd($today_schedule->id);
         $comment=Comment::where('today_schedule_id', $today_schedule->id)->get();
-        //作業用変数
+        $count=Comment::where('today_schedule_id', $today_schedule->id)->get()->count();
+        // dd($count);
 
         //変数名=>値
-        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment]);
+        return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment])->with(['count'=>$count]);
     }
     
     public function create(){
