@@ -41,13 +41,16 @@
       <div class="flex-center full-height"><br>
         <div class='card-body'>
           <h3>コメント一覧</h3>
+          <p class="text-muted text-right">コメント数：{{ $count }}　</p>
           <table class="table">
           @if ($comments->count() > 0)
             <tr>
               <th>投稿者</th></th><th>投稿日</th><th>コメント内容</th>
             </tr>
             @foreach($comments as $comment)
-              <tr><td>{{ $comment->user->email }}</td><td>{{ $comment->created_at }}</td><td>{{ $comment->content }}</td></tr>
+              <tr>
+                <td>{{ $comment->user->email }}</td><td>{{ $comment->created_at }}</td><td>{{ $comment->content }}</td>
+              </tr>
             @endforeach
             <br>
           @else
@@ -67,6 +70,7 @@
           <input type="hidden" name="comment[today_schedule]" value="{{ $today_schedules->id }}">
           <h3 class='card-title'>コメント投稿</h3>
           <textarea name="comment[content]" placeholder="コメントを入力してください" rows="3" cols="80"></textarea><br><br>
+          <p class="comment_error" style="color:red">{{ $errors->first('comment.content') }}</p>
           <input type="submit" class="btn btn-outline-info" value="投稿"><br>
           </form>
       </div>

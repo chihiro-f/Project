@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Today_schedule;
 use App\Comment;
+use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,17 +15,16 @@ class CommentController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(Comment $comment, Today_schedule $today_schedule){
+    public function index(Comment $comment){
         return view('Network.show')->with(['comments' => $comment->get()]);  
     }
     
-    public function store(Request $request){
+    public function store(CommentRequest $request){
         $user=Auth::user();
  
         $comment = new Comment;
         $comment->content = $request->input('comment.content');
         $comment->today_schedule_id = $request->input('comment.today_schedule');
-        // dd($comment->today_schedule_id);
         $comment->user_id = $user->id;
         $comment->save();
         
@@ -32,4 +32,5 @@ class CommentController extends Controller
         return redirect('/today/' . $comment->today_schedule_id);
         //->with('commentstatus','コメントを投稿しました');
     }
+    
 }

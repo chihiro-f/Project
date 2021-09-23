@@ -28,7 +28,7 @@
       </div>
     </div>
   </div><br>
-  <div class="card text-center w-60 mx-auto">
+  <div class="card text-center w-75 mx-auto">
     <div class='card-body'>
       <ul class="list-group list-group-flush">
         @if ($networks->count() > 0)
@@ -39,6 +39,9 @@
           <h5 class ='text-truncate'>{{ $network->content }}</h5>
         </li>
         @endforeach
+        <div class="mx-auto">
+         {{ $networks->links() }}
+         </div>
         @else
           連絡は投稿されていません<br>
         @endif

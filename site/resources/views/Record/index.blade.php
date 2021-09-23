@@ -66,6 +66,9 @@
           </div>
         </li>
         @endforeach
+        <div class="mx-auto">
+         {{ $records->links() }}
+        </div>
         @else
           該当する録音フォルダはありません<br>
         @endif
