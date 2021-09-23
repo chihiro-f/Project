@@ -33,7 +33,7 @@ class RecordController extends Controller
     public function store(RecordRequest $request, Record $record){
         $input = $request['record'];
         $record->fill($input)->save();
-        return redirect('/record');
+        return redirect('/record')->with('message','録音の投稿が完了しました');
     }
     
     public function delete(Record $record){

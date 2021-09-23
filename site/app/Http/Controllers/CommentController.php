@@ -29,8 +29,7 @@ class CommentController extends Controller
         $comment->save();
         
         //ルーティング
-        return redirect('/today/' . $comment->today_schedule_id);
-        //->with('commentstatus','コメントを投稿しました');
+        return redirect('/today/' . $comment->today_schedule_id)->with('message','コメントの投稿が完了しました');
     }
     
 }

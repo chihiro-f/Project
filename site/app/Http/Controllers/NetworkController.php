@@ -36,6 +36,6 @@ class NetworkController extends Controller
         
         $network->save();
         
-        return redirect('/network/' . $network->id);
+        return redirect('/network/' . $network->id)->with('message','連絡の投稿が完了しました');
     }
 }

@@ -18,6 +18,10 @@ class Today_schedule extends Model
         return $this->orderBy('updated_at','DESC')->limit($limit_count)->get();
     }
     
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
     
     // Today_scheduleモデルでcommentsを唱えるとCommentのクラスを作る
     public function comments(){

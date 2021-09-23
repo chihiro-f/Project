@@ -19,7 +19,7 @@ class CreateRecordsTable extends Migration
             // title varchar(20) -->
             $table->string('title',20);
             // person varchar(20) -->
-            $table->string('person',20);
+            $table->string('group',20);
             // url varchar(20) -->
             $table->string('url',255);
             // created_atとupdated_atの追加 -->

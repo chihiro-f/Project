@@ -21,9 +21,7 @@ class Today_scheduleController extends Controller
     public function show(Today_schedule $today_schedule){
         $comment=Comment::where('today_schedule_id', $today_schedule->id)->get();
         $count=Comment::where('today_schedule_id', $today_schedule->id)->get()->count();
-        // dd($count);
 
-        //変数名=>値
         return view('Today_schedule.show')->with(['today_schedules'=>$today_schedule])->with(['comments'=>$comment])->with(['count'=>$count]);
     }
     
@@ -31,20 +29,31 @@ class Today_scheduleController extends Controller
         return view('Today_schedule.create');
     }
 
-    public function store(Today_scheduleRequest $request, Today_schedule $today_schedule){
-        $input = $request['today_schedule'];
-        $today_schedule->fill($input)->save();
+    public function store(Today_scheduleRequest $request){
+        $user=Auth::user();
         
-        return redirect('/today/' . $today_schedule->id);
+        $today_schedule = new Today_schedule;
+        $today_schedule->title = $request->input('today_schedule.title');
+        $today_schedule->content = $request->input('today_schedule.content');
+        $today_schedule->user_id = $user->id;
+        $today_schedule->save();
+        
+        return redirect('/today/' . $today_schedule->id)->with('message','スケジュールの投稿が完了しました');
     }
 
     public function edit(Today_schedule $today_schedule){
-        return view('Today_schedule.edit')->with(['today_schedule'=>$today_schedule]);
+        $user =auth()->user();
+        if($user->can('update',$today_schedule)){
+            return view('Today_schedule.edit')->with(['today_schedule'=>$today_schedule]);
+        }else{
+            return redirect('/today/'.$today_schedule->id)->with('message2','投稿者以外が編集することはできません');
+        }
     }
     
     public function update(Today_scheduleRequest $request, Today_schedule $today_schedule){
         $input = $request['today_schedule'];
         $today_schedule->fill($input)->save();
-        return redirect('/today/' .$today_schedule->id);
+        
+        return redirect('/today/' .$today_schedule->id)->with('message','スケジュールの編集が完了しました');
     }
 }

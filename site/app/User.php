@@ -15,9 +15,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    // protected $fillable = [
-    //     'part', 'email', 'password',
-    // ];
     protected $guarded = [
         'id',
     ];
@@ -54,5 +51,10 @@ class User extends Authenticatable
     // Userモデルでmonthly_scheduleを唱えるとMonthly_scheduleのクラスを作る
     public function monthly_schedules(){
         return $this->hasMany(Monthly_schedule::class);
+    }
+    
+    // Userモデルでtoday_scheduleを唱えるとToday_scheduleのクラスを作る
+    public function today_schedules(){
+        return $this->hasMany(Today_schedule::class);
     }
 }

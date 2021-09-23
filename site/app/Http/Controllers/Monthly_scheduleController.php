@@ -30,6 +30,6 @@ class Monthly_scheduleController extends Controller
         
         $monthly_schedule->save();
         
-        return redirect('/monthly_schedule/1');
+        return redirect('/monthly_schedule/1')->with('message','活動予定日の編集が完了しました');
     }
 }

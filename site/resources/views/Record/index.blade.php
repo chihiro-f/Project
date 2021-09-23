@@ -39,6 +39,9 @@
   </form>
   </div>
   
+  @if(session('message'))
+  <div class="alert alert-success">{{session('message')}}</div>
+  @endif
   
   <div class="card w-75 mx-auto">
     <div class='card-body'>

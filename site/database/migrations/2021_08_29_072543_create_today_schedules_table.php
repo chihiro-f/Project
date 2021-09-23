@@ -20,17 +20,19 @@ class CreateTodaySchedulesTable extends Migration
             $table->string('title',20);
             //<!-- content TEXT -->
             $table->text('content');
+            
+            //<!-- user_id 設定 -->
+            $table->integer('user_id')->unsigned();
+            //<!-- 外部キー制約 -->
+            $table->foreign('user_id')
+                    ->references('id')->on('users')
+                    ->onDelete('cascade');
+            
+            
             //<!-- created_atとupdated_atの追加 -->
             $table->timestamps();
             //<!-- deleted_at　論理削除 -->
             $table->softDeletes();
-            
-            // //<!-- comment_id 設定 -->
-            // $table->integer('comment_id')->unsigned();
-            // //<!-- 外部キー制約 -->
-            // $table->foreign('comment_id')
-            //         ->references('id')->on('comments')
-            //         ->onDelete('cascade');
         });
     }
 

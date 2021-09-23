@@ -19,6 +19,10 @@
     <li class="nav-item"><a class="nav-link active" href="/network">　連絡網　</a></li>
   </ul><br>
   
+  @if(session('message'))
+  <div class="alert alert-success">{{session('message')}}</div>
+  @endif
+  
   <div class='container'>
     <div class="card text-center w-75 mx-auto">
     <div class="flex-center position-ref full-height">
