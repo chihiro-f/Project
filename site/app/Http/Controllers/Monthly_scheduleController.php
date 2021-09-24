@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class Monthly_scheduleController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->middleware('verified');
     }
     
     public function show(Monthly_schedule $monthly_schedule){

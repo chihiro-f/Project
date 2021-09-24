@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        // $this->middleware('auth');
+        $this->middleware('verified');
+    }
+    
     public function index(User $user)
     {
         return view('login')->with(['users' => $user->get()]);

@@ -14,7 +14,7 @@
   @section('content')
   <ul class="nav nav-pills nav-fill">
     <li class="nav-item"><a class="nav-link active" href="/home">　Home　</a></li>
-    <li class="nav-item"><a class="nav-link" href="/monthly_schedule">　今後の予定一覧　</a></li>
+    <li class="nav-item"><a class="nav-link" href="/monthly_schedule/1">　今後の予定一覧　</a></li>
     <li class="nav-item"><a class="nav-link" href="/record">　練習録音　</a></li>
     <li class="nav-item"><a class="nav-link" href="/network">　連絡網　</a></li>
   </ul><br>

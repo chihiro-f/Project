@@ -29,7 +29,7 @@
         <div class ='card-body'>
           <h1 class='card-title'>活動日予定</h1>
           <p class = 'card-subtitle text-muted'>更新日 : {{ $monthly_schedules->updated_at }}</p>
-          <p class = 'text-muted'> 編集者 : {{ $monthly_schedules->user->email }}</p>
+          <p class = 'text-muted'>投稿者 : {{ $monthly_schedules->user->email }}</p>
         </div>
       </div>
     </div><br>
@@ -37,7 +37,7 @@
       <div class="flex-center position-ref full-height">
         <div class ='card-body'>
           <p>[<a href="/monthly_schedule/{{ $monthly_schedules->id }}/edit">このスケジュールを編集</a>]</p>
-          <h3>{{ $monthly_schedules->content }}</h3>
+          <p>{{ $monthly_schedules->content }}</p>
         </div>
       </div>
     </div>

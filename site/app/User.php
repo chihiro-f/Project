@@ -3,12 +3,17 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
+// use Illuminate\Auth\MustVerifyEmail;
+// use App\Notifications\CustomVerifyEmail;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
+    // use MustVerifyEmail, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -57,4 +62,9 @@ class User extends Authenticatable
     public function today_schedules(){
         return $this->hasMany(Today_schedule::class);
     }
+    
+    // //Userモデルで通知メールのカスタマイズの宣言
+    // public function sendEmailVerificationNotification(){
+    //     $this->notify(new CustomVerifyEmail());
+    // }
 }
