@@ -6,6 +6,11 @@
   <title>@yield('title')部員サイト</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
   <link href="{{ mix('assets/css/app.css') }}" rel="stylesheet">
+  <script>
+    $('.delete-confirm').click(function(){
+        $('#deletebtn').val( $(this).val() );
+    });
+</script>
 </head>
 
 <body>
@@ -37,20 +42,28 @@
         <form action="/today/{{ $today_schedules->id }}" id="form_{{ $today_schedules->id }}" method="post" style="display:inline">
           @csrf
           @method('DELETE')
+          //削除ボタン
           <div class="col text-left">
-          <input type="submit" class="btn btn-outline-danger" value="削除"><br>
+            <button type="button" class="btn btn-outline-danger" value="削除" data-toggle="modal" data-target="#modal1">削除</button><br>
+          </div>
+          
+          //ダイアログ出現
+          <div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body"><label>本当に削除しますか？</label></div>
+                <div class="modal-footer">
+                  <input type="submit" value="Cancel" class="btn btn-secondary" data-dismiss="modal" >
+                  <input type="submit" value="OK" id="deletebtn" class="btn btn-primary" >
+                </div>
+              </div>
+            </div>
+          </div>
           </div>
         </form><br>
         </div>
-        
-        
-        
       </div>
-      
-    </div>
-  </div>
-  </div><br>
-  
+    </div><br>
   <div class='container'>
   <div class="card text-center w-75 mx-auto">
     <div class="flex-center position-ref full-height">
@@ -63,7 +76,6 @@
     </div>
   </div>
   </div><br>
-  
   
   <div class='container'>
     <div class="card text-center w-75 mx-auto">
