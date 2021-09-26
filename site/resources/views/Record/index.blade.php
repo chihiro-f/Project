@@ -55,8 +55,10 @@
           @csrf
           @method('DELETE')
           <div class="col text-left">
-          <input type="submit" class="btn btn-outline-info" value="削除"><br>
+            <!--<button type="button" class="btn btn-outline-danger" value="削除" data-toggle="modal" data-target="#modal1">削除</button><br>-->
+            <input type="submit" class="btn btn-outline-danger" value="削除">
           </div>
+            
           </form><br>
           </div>
           

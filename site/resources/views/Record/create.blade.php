@@ -30,6 +30,7 @@
     <div class="card text-center w-60 mx-auto">
       <div class="flex-center position-ref full-height">
         <div class='card-body'>
+          
           <form action="/record" method="POST">
           @csrf
 
@@ -38,7 +39,7 @@
           <p class="title_error" style="color:red">{{ $errors->first('record.title') }}</p>
 
           <h4>グループ</h4><p class="text-muted">20字以内</p>
-          <input type="text" name="record[person]" placeholder="グループ・属性を入力" value="{{ old('record.person') }}" >
+          <input type="text" name="record[group]" placeholder="グループ・属性を入力" value="{{ old('record.group') }}" >
           <p class="group_error" style="color:red">{{ $errors->first('record.group') }}</p>
 
           <h4>URL</h4>
@@ -46,6 +47,7 @@
           <p class="url_error" style="color:red">{{ $errors->first('record.url') }}</p><br><br>
           <input type="submit" class="btn btn-outline-info" value="投稿"/><br>
           </form>
+          
         </div>
       </div>
     </div>
