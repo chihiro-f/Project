@@ -32,6 +32,7 @@
         <form action="/today" method="POST">
           @csrf
           <h4>タイトル</h4>
+          <p class="text-muted">20字以内</p>
           <input type="text" name="today_schedule[title]" placeholder="タイトルを入力" value="{{ old('today_schedule.title') }}" >
           <p class="title_error" style="color:red">{{ $errors->first('today_schedule.title') }}</p><br>
       
@@ -44,7 +45,7 @@
           </div>
         </form>
       </div>
-      <a href="/home">戻る</a>
+      <a href="/home">ホームに戻る</a>
     </div>
     </div>
   </div>

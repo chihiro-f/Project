@@ -28,6 +28,18 @@
       </div>
     </div>
   </div><br>
+  
+  <div class="row justify-content-center">
+  <form class="form-inline">
+  @csrf
+  <div class="form-group">
+    <input type="search" class="form-control" value="{{ request('search')}}" placeholder="検索したいグループ名を入力してください" name="search" size="45">
+  </div>
+  <input type="submit" class="btn btn-outline-info" value="検索" />
+  </form>
+  </div>
+  
+  
   <div class="card text-center w-75 mx-auto">
     <div class='card-body'>
       <ul class="list-group list-group-flush">

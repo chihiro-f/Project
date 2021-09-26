@@ -11,11 +11,21 @@ class NetworkController extends Controller
 {
     //
     public function __construct() {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->middleware('verified');
     }
     
     public function index(Network $network){
-        return view('Network.index')->with([ 'networks' => $network->getPaginateByLimit() ]);
+        $network=Network::latest()->where(function ($query){
+        // $records=Record::orderBy('created_at','DESC')->where(function ($query){
+            //検索機能
+            if($search=request('search')){
+                $query->where('title','LIKE',"%{$search}%")->orWhere('content','LIKE',"%{$search}%");
+            }
+        });
+        $network=$network->paginate(10);
+        
+        return view('Network.index')->with([ 'networks' => $network ]);
     }
     
     public function show(Network $network){

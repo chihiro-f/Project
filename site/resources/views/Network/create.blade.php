@@ -34,7 +34,7 @@
         @csrf
         <h1 class='card-title'>新規投稿_連絡網</h1>
         <h4>タイトル</h4>
-        <input type="text" name="network[title]" placeholder="タイトルを入力" value="{{ old('network.title') }}" >
+        <input type="text" name="network[title]" placeholder="タイトルを入力" value="{{ old('network.title') }}" size="45">
         <p class="title_error" style="color:red">{{ $errors->first('network.title') }}</p>
 
         <h4>連絡内容</h4>

@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
             $table->string('password',255);
             //part  char(10)
             $table->string('part',10);
+            
+            //メールアドレスの本人確認日時
+            $table->timestamp('email_verified_at')->nullable();
+            
             // created_atとupdated_atの追加
             $table->timestamps();
             // deleted_at　論理削除

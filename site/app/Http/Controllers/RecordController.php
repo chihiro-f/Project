@@ -11,14 +11,15 @@ class RecordController extends Controller
 {
     
     public function __construct() {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->middleware('verified');
     }
     
     public function index(Record $record){
-        $records=Record::orderBy('created_at','asc')->where(function ($query){
+        $record=Record::latest()->where(function ($query){
             //検索機能
             if($search=request('search')){
-                $query->where('person','LIKE',"%{$search}%");
+                $query->where('group','LIKE',"%{$search}%")->orWhere('title','LIKE',"%{$search}%");
             }
         });
         $record=$record->paginate(10);

@@ -33,7 +33,7 @@
     <div class="flex-center position-ref full-height">
       <div class ='card-body'>
         <h1 class = 'card-title'>{{ $networks->title }}</h1>
-          <h5 class = 'card-subtitle text-muted'>編集者 : {{ $networks->user->email }}</h5>
+          <h5 class = 'card-subtitle text-muted'>投稿者 : {{ $networks->user->email }}</h5>
           <h5 class = 'text-muted'>投稿日 : {{ $networks->created_at }}</h5><br>
           <h4>{{ $networks->content }}</h4><br>
       </div>

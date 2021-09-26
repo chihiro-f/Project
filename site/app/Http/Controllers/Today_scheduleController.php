@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class Today_scheduleController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('verified');
     }
     
     public function index(Today_schedule $today_schedule){
@@ -55,5 +55,15 @@ class Today_scheduleController extends Controller
         $today_schedule->fill($input)->save();
         
         return redirect('/today/' .$today_schedule->id)->with('message','スケジュールの編集が完了しました');
+    }
+    
+    public function delete(Today_schedule $today_schedule){
+        $user =auth()->user();
+        if($user->can('update',$today_schedule)){
+            $today_schedule->delete();
+            return redirect('/home');
+        }else{
+            return redirect('/today/'.$today_schedule->id)->with('message2','投稿者以外が削除することはできません');
+        }
     }
 }

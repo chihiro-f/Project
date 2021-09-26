@@ -14,6 +14,7 @@ Route::get('/', function() {
     return view('welcome');
 });
 
+Auth::routes(['verify'=>true]);
 
 Route::get('/top', 'Today_scheduleController@index');
 Route::get('/today/create','Today_scheduleController@create');
@@ -21,6 +22,7 @@ Route::get('/today/{today_schedule}/edit','Today_scheduleController@edit');
 Route::get('/today/{today_schedule}', 'Today_scheduleController@show');
 Route::post('/today', 'Today_scheduleController@store');
 Route::put('/today/{today_schedule}','Today_scheduleController@update');
+Route::delete('/today/{today_schedule}', 'Today_scheduleController@delete');
 
 Route::get('/monthly_schedule/{monthly_schedule}/edit','Monthly_scheduleController@edit');
 Route::put('/monthly_schedule/{monthly_schedule}','Monthly_scheduleController@update');
@@ -37,10 +39,7 @@ Route::post('/record', 'RecordController@store');
 Route::delete('/record/{record}', 'RecordController@delete');
 
 Route::get('/user', 'UserController@index');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('comment', 'CommentController', ['only' => ['store']]);
-
-Route::get('/watchword','WatchwordController@show');
