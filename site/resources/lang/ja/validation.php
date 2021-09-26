@@ -129,8 +129,32 @@ return [
     */
 
     'custom' => [
-        '属性名' => [
-            'ルール名' => 'カスタムメッセージ',
+        // '属性名' => [
+        //     'ルール名' => 'カスタムメッセージ',
+        // ],
+        'today_schedule.title' =>[
+            'required'=>'必ず入力してください',
+        ],
+        'today_schedule.content' =>[
+            'required'=>'必ず入力してください',
+        ],
+        'monthly_schedule.content' =>[
+            'required'=>'必ず入力してください',
+        ],
+        'record.title' =>[
+            'required' =>'必ず入力してください',
+        ],
+        'record.group' =>[
+            'required' =>'必ず入力してください',
+        ],
+        'record.url' =>[
+            'required' =>'必ず入力してください',
+        ],
+        'network.title' =>[
+            'required' =>'必ず入力してください',
+        ],
+        'network.content' =>[
+            'required' =>'必ず入力してください',
         ],
     ],
 
@@ -145,6 +169,7 @@ return [
     |
     */
 
-    'attributes' => [],
+    // 'attributes' => [],
+    
 
 ];
