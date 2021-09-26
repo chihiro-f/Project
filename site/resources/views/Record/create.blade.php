@@ -33,11 +33,11 @@
           <form action="/record" method="POST">
           @csrf
 
-          <h4>タイトル</h4>
+          <h4>タイトル</h4><p class="text-muted">20字以内</p>
           <input type="text" name="record[title]" placeholder="タイトルを入力" value="{{ old('record.title') }}" >
           <p class="title_error" style="color:red">{{ $errors->first('record.title') }}</p>
 
-          <h4>グループ</h4>
+          <h4>グループ</h4><p class="text-muted">20字以内</p>
           <input type="text" name="record[person]" placeholder="グループ・属性を入力" value="{{ old('record.person') }}" >
           <p class="group_error" style="color:red">{{ $errors->first('record.person') }}</p>
 

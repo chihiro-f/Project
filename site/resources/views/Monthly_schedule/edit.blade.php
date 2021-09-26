@@ -29,7 +29,7 @@
           @csrf
           @method('PUT')
           <div class = 'schedule_month'>
-            <input type="text" name="monthly_schedule[content]" value="{{ $monthly_schedule->content }}"/>
+            <textarea name="monthly_schedule[content]" rows="3" cols="80">{{ $monthly_schedule->content }}</textarea>
             <p class="content_error" style="color:red">{{ $errors->first('monthly_schedule.content') }}</p><br>
             <input type="submit" class="btn btn-outline-info" value="更新" /><br><br>
           </div><br>

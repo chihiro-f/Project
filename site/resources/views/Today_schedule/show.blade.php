@@ -29,18 +29,41 @@
   <div class="card text-center w-75 mx-auto">
     <div class="flex-center position-ref full-height"><br>
       <h1>一日のスケジュール</h1>
+      
       <div class ='card-body'>
-        <p class = 'card-subtitle text-muted'>更新日：{{ $today_schedules->updated_at }}</p>
-        <p class = 'card-subtitle text-muted'>投稿者：{{ $today_schedules->user->email }}</p><br>
         <p>[<a href="/today/{{ $today_schedules->id }}/edit">このスケジュールを編集</a>]</p>
-        <h1 class='card-title'>{{ $today_schedules->title }}</h1><br>
-        <p>{{ $today_schedules->content }}</p>
+        
+        <div class="row justify-content-center">
+        <form action="/today/{{ $today_schedules->id }}" id="form_{{ $today_schedules->id }}" method="post" style="display:inline">
+          @csrf
+          @method('DELETE')
+          <div class="col text-left">
+          <input type="submit" class="btn btn-outline-danger" value="削除"><br>
+          </div>
+        </form><br>
+        </div>
+        
+        
         
       </div>
       
     </div>
   </div>
   </div><br>
+  
+  <div class='container'>
+  <div class="card text-center w-75 mx-auto">
+    <div class="flex-center position-ref full-height">
+      <div class ='card-body'>
+        <h1 class='card-title'>{{ $today_schedules->title }}</h1><br>
+        <p class = 'card-subtitle text-muted'>更新日：{{ $today_schedules->updated_at }}</p>
+        <p class = 'card-subtitle text-muted'>投稿者：{{ $today_schedules->user->email }}</p><br>
+        <p>{{ $today_schedules->content }}</p>
+      </div>
+    </div>
+  </div>
+  </div><br>
+  
   
   <div class='container'>
     <div class="card text-center w-75 mx-auto">
@@ -55,7 +78,7 @@
             </tr>
             @foreach($comments as $comment)
               <tr>
-                <td>{{ $comment->user->email }}</td><td>{{ $comment->created_at }}</td><td>{{ $comment->content }}</td>
+                <td>{{ $comment->user->email }}</td><td>{{ $comment->created_at }}</td><td class="text-break">{{ $comment->content }}</td>
               </tr>
             @endforeach
             <br>

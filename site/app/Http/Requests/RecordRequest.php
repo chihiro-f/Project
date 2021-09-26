@@ -26,7 +26,7 @@ class RecordRequest extends FormRequest
         return [
             //
             'record.title' => 'required|string|max:15',
-            'record.person' => 'required|string|max:15',
+            'record.group' => 'required|string|max:15',
             'record.url' => 'required|string|max:255',
         ];
     }

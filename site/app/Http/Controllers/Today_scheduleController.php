@@ -56,4 +56,14 @@ class Today_scheduleController extends Controller
         
         return redirect('/today/' .$today_schedule->id)->with('message','スケジュールの編集が完了しました');
     }
+    
+    public function delete(Today_schedule $today_schedule){
+        $user =auth()->user();
+        if($user->can('update',$today_schedule)){
+            $today_schedule->delete();
+            return redirect('/home');
+        }else{
+            return redirect('/today/'.$today_schedule->id)->with('message2','投稿者以外が削除することはできません');
+        }
+    }
 }

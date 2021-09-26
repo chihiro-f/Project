@@ -33,7 +33,7 @@
   <form class="form-inline">
   @csrf
   <div class="form-group">
-    <input type="search" class="form-control" value="{{ request('search')}}" placeholder="検索したいグループ名を入力してください" name="search" size="45">
+    <input type="search" class="form-control" value="{{ request('search')}}" placeholder="検索したいタイトルやグループ名を入力してください" name="search" size="48">
   </div>
   <input type="submit" class="btn btn-outline-info" value="検索" />
   </form>
@@ -59,12 +59,13 @@
           </div>
           </form><br>
           </div>
+          
           <div class="row">
             <div class="row col text-left">
             <h5 class="text-muted">　投稿日：</h5><h5>{{ $record->created_at }}</h5>
           </div>
           <div class="row col text-right">
-            <h5 class="text-muted">グループ：</h5><h5>{{ $record->person }}</h5>
+            <h5 class="text-muted">グループ：</h5><h5>{{ $record->group }}</h5>
           </div>
           </div>
         </li>

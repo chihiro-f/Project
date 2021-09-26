@@ -37,7 +37,7 @@
         <input type="text" name='today_schedule[title]' value="{{ $today_schedule->title }}" />
         <p class="title_error" style="color:red">{{ $errors->first('today_schedule.title') }}</p>
         <h4>スケジュール内容</h4>
-        <input type="text" name="today_schedule[content]" value="{{ $today_schedule->content }}"/><br>
+        <textarea name="today_schedule[content]" rows="3" cols="80">{{ $today_schedule->content }}</textarea><br>
         <p class="content_error" style="color:red">{{ $errors->first('today_schedule.content') }}</p>
         <p></p>
         <input type="submit" class="btn btn-outline-info" value="更新" />
