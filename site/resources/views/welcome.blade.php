@@ -121,6 +121,7 @@
                 display: inline-block;
                 padding: 0.3em 1em;
                 text-decoration: none;
+                font-weight:bold;
                 color: #67c5ff;
                 border: solid 2px #67c5ff;
                 border-radius: 3px;
@@ -156,7 +157,8 @@
                     Y N U S B
                 </div>
                 
-                <input type="button" class="btn-flat-border" value="H  O  M  E" formenctype="/home">
+                <!--<input type="button" class="btn-flat-border" value="H  O  M  E" formenctype="/home">-->
+                <a href="/home" class="btn-flat-border">HOME</a>
                 <br><br><br>
 
                 <!--<div class="links">-->
