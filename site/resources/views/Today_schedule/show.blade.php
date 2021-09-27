@@ -42,12 +42,12 @@
         <form action="/today/{{ $today_schedules->id }}" id="form_{{ $today_schedules->id }}" method="post" style="display:inline">
           @csrf
           @method('DELETE')
-          //削除ボタン
+          {{-- 削除ボタン --}}
           <div class="col text-left">
             <button type="button" class="btn btn-outline-danger" value="削除" data-toggle="modal" data-target="#modal1">削除</button><br>
           </div>
           
-          //ダイアログ出現
+          {{-- ダイアログ出現 --}}
           <div class="modal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">

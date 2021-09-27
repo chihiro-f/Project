@@ -15,6 +15,7 @@ class Today_scheduleController extends Controller
     }
     
     public function index(Today_schedule $today_schedule){
+        
         return view('Today_schedule.index')->with([ 'today_schedules' => $today_schedule->getByLimit()]);
     }
     

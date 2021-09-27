@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Today_schedule;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -28,4 +29,17 @@ class HomeController extends Controller
     {
         return view('Today_schedule.index')->with(['today_schedules' => $today_schedule->getByLimit()]);
     }
+    
+    
+    public function show(){
+        $tda=Carbon::today()->subDay(2);
+        
+        $todays=Today_schedule::whereDate('updated_at','>=',$tda)->get()->count();
+        $months=\App\Monthly_schedule::whereDate('updated_at','>=',$tda)->get();
+        $records=\App\Record::whereDate('updated_at','>=',$tda)->get()->count();
+        $networks=\App\Network::whereDate('updated_at','>=','tda')->get()->count();
+        
+        return view('welcome')->with(['todayCount' => $todays])->with(['monthly' => $months[0]])->with([ 'recordCount' => $records ])->with([ 'networkCount' => $networks ]);;
+    }
+
 }
