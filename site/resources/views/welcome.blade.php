@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>YNUSB</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -116,29 +116,48 @@
                 /* border: solid 1px; */
             }
             
+            
+            .btn-flat-border {
+                display: inline-block;
+                padding: 0.3em 1em;
+                text-decoration: none;
+                color: #67c5ff;
+                border: solid 2px #67c5ff;
+                border-radius: 3px;
+                transition: .4s;
+            }
+
+            .btn-flat-border:hover {
+                background: #67c5ff;
+                color: white;
+            }
+            
         </style>
     </head>
     
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">{{ __('Home') }}</a>
-                    @else
-                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+            <!--@if (Route::has('login'))-->
+            <!--    <div class="top-right links">-->
+            <!--        @auth-->
+            <!--            <a href="{{ url('/home') }}">{{ __('Home') }}</a>-->
+            <!--        @else-->
+            <!--            <a href="{{ route('login') }}">{{ __('Login') }}</a>-->
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+            <!--            @if (Route::has('register'))-->
+            <!--                <a href="{{ route('register') }}">{{ __('Register') }}</a>-->
+            <!--            @endif-->
+            <!--        @endauth-->
+            <!--    </div>-->
+            <!--@endif-->
 
             <div class="content">
                 <div class="title m-b-md">
                     Y N U S B
-                </div><br><br>
+                </div>
+                
+                <input type="button" class="btn-flat-border" value="H  O  M  E" formenctype="/home">
+                <br><br><br>
 
                 <!--<div class="links">-->
                 <!--    <a href="https://laravel.com/docs">Docs</a>-->
