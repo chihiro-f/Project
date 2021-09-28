@@ -35,11 +35,11 @@ class HomeController extends Controller
         $tda=Carbon::today()->subDay(2);
         
         $todays=Today_schedule::whereDate('updated_at','>=',$tda)->get()->count();
-        $months=\App\Monthly_schedule::whereDate('updated_at','>=',$tda)->get();
+        $months=\App\Monthly_schedule::whereDate('updated_at','>=',$tda)->get()->count();
         $records=\App\Record::whereDate('updated_at','>=',$tda)->get()->count();
-        $networks=\App\Network::whereDate('updated_at','>=','tda')->get()->count();
+        $networks=\App\Network::whereDate('created_at','>=',$tda)->get()->count();
         
-        return view('welcome')->with(['todayCount' => $todays])->with(['monthly' => $months[0]])->with([ 'recordCount' => $records ])->with([ 'networkCount' => $networks ]);;
+        return view('welcome')->with(['todayCount' => $todays])->with(['monthlyCount' => $months])->with([ 'recordCount' => $records ])->with([ 'networkCount' => $networks ]);;
     }
 
 }
