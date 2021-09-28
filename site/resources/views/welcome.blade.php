@@ -13,7 +13,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: cornflowerblue;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -61,8 +61,64 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            
+            ul{
+                width:500px;
+            }
+            
+            li{
+                border-bottom:1px solid #ccc;
+                list-style:none;
+            }
+            
+            a{
+                text-decoration:none;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            a:hover{
+                background-color:#ccc;
+            }
+
+            span{
+                color:#000000;   //黒
+                vertical-align: middle;
+                display: inline-block;
+                margin-right: 10px;
+            }
+            
+            p{
+                color: #131313;
+                display: inline-block;
+                margin: 0;
+                padding: 0;
+                vertical-align: middle;
+            }
+            
+            .box{
+                font-weight:bold;
+                padding: 0.5em 1em;
+                margin: 0.0em 0;
+                color: #fff;
+                background: #c9e4ff; /*背景色*/
+            }
+            
+            .col-1 {
+                display: inline-block;
+                width: 100px;
+                /* border: solid 1px; */
+            }
+            
+            .col-2 {
+                display: inline-block;
+                width: 300px;
+                /* border: solid 1px; */
+            }
+            
         </style>
     </head>
+    
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -81,19 +137,61 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
+                    Y N U S B
+                </div><br><br>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <!--<div class="links">-->
+                <!--    <a href="https://laravel.com/docs">Docs</a>-->
+                <!--    <a href="https://laracasts.com">Laracasts</a>-->
+                <!--    <a href="https://laravel-news.com">News</a>-->
+                <!--    <a href="https://blog.laravel.com">Blog</a>-->
+                <!--    <a href="https://nova.laravel.com">Nova</a>-->
+                <!--    <a href="https://forge.laravel.com">Forge</a>-->
+                <!--    <a href="https://vapor.laravel.com">Vapor</a>-->
+                <!--    <a href="https://github.com/laravel/laravel">GitHub</a>-->
+                <!--</div>-->
+                
+                <h5>ここ２日間での新着情報</h5>
+                
+                <ul>
+
+                    @if($todayCount > 0)
+                        <li>
+                            <a href="/home"><span class="col-1"><div class="box">Today</div></span><span class="col-2">{{ $todayCount }}件の新しい投稿があります</span></a>
+                        </li>
+                    @else
+                    {{-- 中身無し --}}
+                    @endif
+
+
+                    @if($monthly->count() > 0)
+                        <li>
+                            <a href="/monthly_schedule/1"><span class="col-1"><div class="box">Monthly</div></span><span class="col-2">{{ $monthly->updated_at }} に更新があります</span></a>
+                        </li>
+                    @else
+                    {{-- 中身無し --}}
+                    @endif
+                    
+                    
+                    @if($recordCount > 0)
+                        <li>
+                            <a href="/record"><span class="col-1"><div class="box">Record</div></span><span class="col-2">{{ $recordCount }}件の新しい投稿があります</span></a>
+                        </li>
+                    @else
+                    {{-- 中身無し --}}
+                    @endif
+                    
+                    
+                    @if($networkCount > 0)
+                        <li>
+                            <a href="/network"><span class="col-1"><div class="box">Network</div></span><span class="col-2">{{ $networkCount }}件の新しい投稿があります</span></a>
+                        </li>
+                    @else
+                    {{-- 中身無し --}}
+                    @endif
+                    
+                </ul>
+                
             </div>
         </div>
     </body>
