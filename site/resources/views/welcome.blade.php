@@ -185,7 +185,7 @@
                     @endif
 
 
-                    @if($monthly->count() > 0)
+                    @if($monthlyCount > 0)
                         <li>
                             <a href="/monthly_schedule/1"><span class="col-1"><div class="box">Monthly</div></span><span class="col-2">{{ $monthly->updated_at }} に更新があります</span></a>
                         </li>
