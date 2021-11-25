@@ -1,14 +1,10 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+# Project
+<p>Webアプリケーション</p>
+<p>練習予定や連絡網、録音を共有するツールを一本化したWebアプリ</p>
 
+## 使い方
 
-Hi there! Welcome to AWS Cloud9!
+## 環境
+<p>開発環境：Laravel7、AWS cloud9</p>
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
-
-Happy coding!
+## 作者
