@@ -1,7 +1,7 @@
 # Project
 <p>Webアプリケーション</p>
 <p>練習予定や連絡網、録音を共有するツールを一本化したWebアプリ</p>
-![home](https://user-images.githubusercontent.com/72483160/143439116-992e34b5-0be7-4ee3-92f8-4295f7878cec.png)
+![home](https://user-images.githubusercontent.com/72483160/143439374-d6c5556c-cb62-4be9-a48b-5c1acff0242c.png)
 
 ## 使い方
 
