@@ -4,18 +4,8 @@
 <img width="952" alt="HOME画面" src="https://user-images.githubusercontent.com/72483160/143439374-d6c5556c-cb62-4be9-a48b-5c1acff0242c.png">
 
 ## Usage
-メアドなど情報を登録し、メールアドレス認証を行う。
-
-・一週間分のスケジュール<br>
-
-・今後の予定<br>
-活動日予定を記入することが出来る。
-
-・練習録音<br>
-URLとタイトルを入力して録音を投稿することができる。
-
-・連絡網<br>
-タイトル・本文を入力して、連絡したいことを投稿することが出来る。
+詳しい使用方法については、以下のURLを参照してください。<br>
+https://drive.google.com/file/d/1wYlZPv7hWUnjrT6MMeTCwtlb2rHWXa9y/view?usp=sharing
 
 ## Environment
 <p>Laravel7、AWS cloud9</p>
